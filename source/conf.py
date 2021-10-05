@@ -78,7 +78,7 @@ pygments_style = 'sphinx'
 #
 html_theme = 'sphinx_rtd_theme'
 html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
-html_logo = 'resources/nsd-duotone-white.svg'
+html_logo = 'resources/nsd-duotone-white.png'
 html_theme_options = {
     'logo_only': True,
     'display_version': True,

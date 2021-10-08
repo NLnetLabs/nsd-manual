@@ -35,14 +35,20 @@ list. All the contents are under the permissive Creative Commons Attribution 3.0
 (`CC-BY 3.0 <https://creativecommons.org/licenses/by/3.0/>`_) license, with
 attribution to NLnet Labs.
 
-
 .. toctree::
    :maxdepth: 2
-   :name: toc-nsd
+   :caption: Setup and Config
 
    installation
    configuration
    tuning
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Reference
+   
+   reference/grammar
+   
 .. history
 .. authors
 .. license

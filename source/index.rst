@@ -37,11 +37,10 @@ attribution to NLnet Labs.
 
 .. toctree::
    :maxdepth: 2
-   :caption: Setup and Config
+   :caption: Getting Started
 
    installation
    configuration
-   tuning
 
 .. toctree::
    :maxdepth: 2

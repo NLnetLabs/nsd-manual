@@ -96,15 +96,14 @@ configuration.
 
     ./configure
 
-When :command:`configure` gives no errors, we can continue to actually compiling
-NSD. For this NSD uses :command:`make`. Be warned that compiling might take a
-while.
+If :command:`configure` gives no errors, we can continue to actually try compiling
+NSD using :command:`make`; compilation might take a while.
 
 .. code-block:: bash
 
     make
 
-When we have a successful compilation, we can install NSD to make available for
+After successfully compiling, we can install NSD to make it available for
 the machine.
 
 .. code-block:: bash
@@ -121,8 +120,8 @@ Testing
 
 A simple test to determine if the installation was successful is to invoke the
 :command:`nsd` command with the :option:`-V` option, which is the "version"
-option. This shows the version and build options used, as well as proving that
-the install was successful.
+option. This shows the version and build options used and proves installation
+was successful.
 
 .. code-block:: bash
 

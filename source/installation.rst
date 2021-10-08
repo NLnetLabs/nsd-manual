@@ -12,7 +12,13 @@ distributions or not have all the compile-time options included that you want.
 Building and compiling NSD yourself ensures that you have the latest version and
 all the compile-time options you desire.
 
-If you're a first-time user we recommend installing via a package manager.
+NSD consists of two programs: the zone compiler ``zonec`` and the name server
+``nsd`` itself. The name server works with an intermediate database prepared by
+the zone compiler from standard zone files.
+
+For NSD operation this means that zones have to be compiled by ``zonec`` before
+NSD can use them. All this can be controlled via ``rc.d`` (SIGTERM,  SIGHUP) or
+:command:`nsd-control`, and uses a simple configuration file  ``nsd.conf``.
 
 Installing with a package manager
 =================================

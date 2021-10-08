@@ -126,14 +126,14 @@ the install was successful.
 
 .. code-block:: bash
 
-    nsd -V
+    nsd -v
 
 If all the previous steps were successful we can continue to configuring our NSD
 instance. 
 
 Another handy trick you can use during testing is to run NSD in the foreground
 using the :option:`-d` option and increase the verbosity level using the
-:option:`-vvv` option. This allows you to see steps NSD takes and also where it
+:option:`-V 3` option. This allows you to see steps NSD takes and also where it
 fails.
 
 Now that NSD is installed we can :ref:`continue to configuring

@@ -4,20 +4,21 @@ Configuration
 -------------
 
 NSD has a vast array of configuration options for advanced use cases. To
-configure NSD, a ``nsd.conf`` configuration file used. The file format has
-attributes and values, and some attributes have attributes inside them. 
+configure the application, a ``nsd.conf`` configuration file used. The file
+format has attributes and values, and some attributes have attributes inside
+them. 
 
-Some basic principles are:
+The basic principles are:
 
-  - The used notation is ``attribute: value``. 
-  - Comments start with ``#`` and last to the end of line. 
-  - Empty lines are ignored as is whitespace at the beginning of a line.
-  - Quotes can be used, for names with spaces, e.g. "file name.zone". 
+  - The used notation is ``attribute: value``
+  - Comments start with ``#`` and last to the end of line
+  - Empty lines are ignored as is whitespace at the beginning of a line
+  - Quotes can be used, for names with spaces, e.g. ``"file name.zone"``
   
-``nsd.conf`` specifies  options for the NSD server, zone files, primaries and
+``nsd.conf`` specifies options for the NSD server, zone files, primaries and
 secondaries. Here is an example:
 
-.. code:: bash
+.. code:: text
 
        # Example.com nsd.conf file
        # This is a comment.

@@ -42,6 +42,7 @@ attribution to NLnet Labs.
 
    installation
    configuration
+   tuning
 .. history
 .. authors
 .. license

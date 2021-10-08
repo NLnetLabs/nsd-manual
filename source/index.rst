@@ -40,9 +40,8 @@ attribution to NLnet Labs.
    :maxdepth: 2
    :name: toc-nsd
 
-   getting-started
-   overview
    installation
+   configuration
 .. history
 .. authors
 .. license

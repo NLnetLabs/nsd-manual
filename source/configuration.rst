@@ -11,9 +11,9 @@ them.
 The basic principles are:
 
   - The used notation is ``attribute: value``
-  - Comments start with ``#`` and last to the end of line
+  - Comments start with ``#`` and extend to the end of a line
   - Empty lines are ignored as is whitespace at the beginning of a line
-  - Quotes can be used, for names with spaces, e.g. ``"file name.zone"``
+  - Quotes can be used, for names containing spaces, e.g. ``"file name.zone"``
   
 ``nsd.conf`` specifies options for the NSD server, zone files, primaries and
 secondaries. Here is an example:

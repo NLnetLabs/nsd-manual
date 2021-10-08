@@ -12,6 +12,9 @@ distributions or not have all the compile-time options included that you want.
 Building and compiling NSD yourself ensures that you have the latest version and
 all the compile-time options you desire.
 
+Introduction
+============
+
 NSD consists of two programs: the zone compiler ``zonec`` and the name server
 ``nsd`` itself. The name server works with an intermediate database prepared by
 the zone compiler from standard zone files.

@@ -45,6 +45,13 @@ attribution to NLnet Labs.
 
 .. toctree::
    :maxdepth: 2
+   :caption: Running NSD
+  
+   running/logging
+   running/tuning
+
+.. toctree::
+   :maxdepth: 2
    :caption: Reference
    
    reference/grammar

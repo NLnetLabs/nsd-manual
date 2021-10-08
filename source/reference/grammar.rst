@@ -8,14 +8,11 @@ Grammar for DNS Zone Files
           such a beast, but when you start implementing it the details make it 
           messy.
 
-Since NSD 1.4, the parser uses Bison and Flex, which are tools for building
-programs that handle structured input. Compared to the earlier implementation
-there is a slight decrease in speed, but as the zone compiler is not critical to
-the performance of NSD, this not too relevant. The overall effect should be in 
-the order of 10-20 %. The memory consumption of the new parser is equal the 
-parser used in NSD 1.2.
-
-The lexer part is located in the file `zlexer.lex
+Since as early as NSD 1.4, the parser relies on Bison and Flex, tools for
+building programs that handle structured input. Compared to the previous
+implementation there is a slight decrease in speed (10-20%), but as the zone
+compiler is not critical to the performance of NSD, this not too relevant. The
+lexer part is located in the file `zlexer.lex
 <https://github.com/NLnetLabs/nsd/blob/master/zlexer.lex>`_, the grammar is in
 `zparser.y <https://github.com/NLnetLabs/nsd/blob/master/zparser.y>`_.
 

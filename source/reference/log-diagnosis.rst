@@ -6,16 +6,16 @@ Diagnosing NSD Log Entries
 NSD will print log messages to the system log (or ``logfile:`` configuration
 entry). Some of these messages are covered here.
 
-Reload process <pid> failed with status <s>, continuing with old database
+Reload process ``<pid>`` failed with status ``<s>``, continuing with old database
     This log message indicates the reload process of NSD has failed for some
     reason.  The reason can be anything from a missing database file to internal
     errors.
 
-snipping off trailing partial part of <ixfr.db>
+snipping off trailing partial part of ``<ixfr.db>``
     The file ixfr.db contains only part of expected data.
     The corruption is removed by snipping off the trailing part.
 
-memory recyclebin holds <num> bytes
+memory recyclebin holds ``<num>`` bytes
     This is printed for every reload. NSD allocates and deallocates memory to
     service IXFR updates. The recycle bin holds deallocated memory ready for
     future use. If the number grows too large, a restart resets it.
@@ -33,7 +33,7 @@ xfrd: max number of tcp connections (32) reached
     (or is aborted) before they can have a zone transfer too. This waiting
     list has no size limit.
 
-error: <zone> NSEC3PARAM entry <num> has unknown hash algo <number>
+error: ``<zone>`` NSEC3PARAM entry ``<num>`` has unknown hash algo ``<number>``
     This error means that the zone has NSEC3 chain(s) with hash algorithms that
     are not supported by this version of NSD, and thus cannot be served by NSD.
     If there are also no NSECs or NSEC3 chain(s) with known hash algorithms, NSD

@@ -4,7 +4,7 @@ Diagnosing NSD Log Entries
 --------------------------
 
 NSD will print log messages to the system log (or ``logfile:`` configuration
-entry). Some of these messages covered here.
+entry). Some of these messages are covered here.
 
 Reload process <pid> failed with status <s>, continuing with old database
     This log message indicates the reload process of NSD has failed for some

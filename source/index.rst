@@ -47,6 +47,7 @@ attribution to NLnet Labs.
    :caption: Running
   
    running/logging
+   running/using-tsig
    running/interfaces
    running/tuning
 

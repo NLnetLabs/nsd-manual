@@ -75,11 +75,11 @@ LIBS=libs
     syslog(3) manual page for the available facilities.
 
 --with-libevent=path
-    Specity the location of the libevent library (or libev).
+    Specity the location of the ``libevent`` library (or libev).
     ``--with-libevent=no`` uses a builtin portable implementation (select()).
 
 --with-ssl=path
-    Specify the location of the OpenSSL libraries.  OpenSSL 0.9.7 or higher is
+    Specify the location of the OpenSSL libraries. OpenSSL 0.9.7 or higher is
     required for TSIG support.
 
 --with-start_priority=number

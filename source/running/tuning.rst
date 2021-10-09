@@ -12,7 +12,7 @@ choices by default, like enabling the use of ``libevent`` at the configure stage
 to ensure the most efficient event mechanism is used on a given platform. e.g.
 ``epoll`` on Linux and ``kqueue`` on FreeBSD. Switches are available for
 operators who know the implementation on their system behaves correctly, like
-enabling the use of ``recvmmsg`` at the configure stage (``--enable-recvmmsg``)
+enabling the use of ``recvmmsg`` at the configure stage (:option:`--enable-recvmmsg`)
 to read multiple messages from a socket in one system call.
 
 By default NSD forks (only) one server. Modern computer systems however, may
@@ -101,8 +101,8 @@ network interface selection process.
           FreeBSD Handbook, forums, etc. for information on how to configure 
           multiple routing tables.
 
-Power of Three
-==============
+Combining Options
+=================
 
 Field tests have shown best performance is achieved by combining the
 aforementioned options so that each network interface is essentially bound to a

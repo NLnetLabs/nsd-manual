@@ -4,7 +4,10 @@ Configuration
 -------------
 
 Before running NSD you need to create a configuration file for it. The config
-file contains server settings, secret keys and zone settings.
+file contains server settings, secret keys and zone settings. In the repository
+we provide a `sample configuration
+<https://github.com/NLnetLabs/nsd/blob/master/nsd.conf.sample.in>`_ to get
+started.
 
 The server settings start with a line with the keyword ``server:``. In the
 server settings set ``database: <file>`` with the filename of the name database
@@ -34,15 +37,15 @@ name, the file name with the zone contents, and access control lists.
     name:	"example.com"
     zonefile: "example.com.zone"
 
-The zonefile needs to be filled with the correct zone information for master
+The zone file needs to be filled with the correct zone information for primary
 zones. For secondary zones an empty file will suffice, a zone transfer will be
-initiated to obtain the slave zone contents.
+initiated to obtain the secondary zone contents.
 
 Access control lists are needed for zone transfer and notifications.
 
-For a slave zone list the masters, by IP address. Below is an example
-of a slave zone with two master servers. If a master only supports AXFR
-transfers and not IXFR transfers (like NSD), specify the master as
+For a secondary zone list the masters, by IP address. Below is an example
+of a secondary zone with two primary servers. If a primary only supports AXFR
+transfers and not IXFR transfers (like NSD), specify the primary as
 ``request-xfr: AXFR <ip_address> <key>``. By default, all zone transfer requests 
 are made over TCP. If you want the IXFR request be transmitted over UDP, use
 ``request-xfr: UDP <ip address> <key>``.
@@ -57,15 +60,16 @@ are made over TCP. If you want the IXFR request be transmitted over UDP, use
     allow-notify: 168.192.199.2 NOKEY
     request-xfr: 168.192.199.2 NOKEY
 
-By default, a slave will fallback to AXFR requests if the master told us it does 
-not support IXFR. You can configure the slave not to do AXFR fallback with:
+By default, a secondary will fallback to AXFR requests if the primary told us it
+does not support IXFR. You can configure the secondary not to do AXFR fallback
+with:
 
 .. code-block:: text
 
     allow-axfr-fallback: "no"
 
-For a master zone, list the slave servers, by IP address or subnet.
-Below is an example of a master zone with two slave servers.
+For a primary zone, list the secondary servers, by IP address or subnet. Below
+is an example of a primary zone with two secondary servers:
 
 .. code-block:: text
 
@@ -110,8 +114,8 @@ suited for running a ``.`` cache. Therefore if you choose to serve the ``.``
 zone you have to make sure that the complete root zone is timely and fully
 updated.
 
-To prevent misconfiguration, NSD configure has the ``--enable-root-server``
-switch, that is by default disabled.
+To prevent misconfiguration, NSD configure has the
+:option:`--enable-root-server` option, that is by default disabled.
 
 In the config file, you can use patterns. A pattern can have the same
 configuration statements that a zone can have.  And then you can
@@ -119,7 +123,7 @@ configuration statements that a zone can have.  And then you can
 apply those settings. This can be used to organise the settings.
 
 The :command:`nsd-control` tool is also controlled from the ``nsd.conf`` config
-file. It uses SSL encrypted transport to 127.0.0.1, and if you want to use it
+file. It uses TLS encrypted transport to 127.0.0.1, and if you want to use it
 you have to setup the keys and also edit the config file.  You can leave the
 remote-control disabled (the secure default), or opt to turn it on:
 
@@ -137,15 +141,16 @@ remote-control disabled (the secure default), or opt to turn it on:
 By default :command:`nsd-control` is limited to localhost, as well as encrypted,
 but some people may want to remotely administer their nameserver.  What you then
 do is setup :command:`nsd-control` to listen to the public IP address, with
-``control-interface: <IP>`` after the control-enable statement.  Furthermore,
-you copy the key files :file:`/etc/nsd/nsd_server.pem`
+``control-interface: <IP>`` after the control-enable statement. 
+
+Furthermore, you copy the key files :file:`/etc/nsd/nsd_server.pem`
 :file:`/etc/nsd/nsd_control.*` to a remote host on the internet; on that host
-you can run :command:`nsd-control` with ``-c <special config file>`` which
+you can run :command:`nsd-control` with :option:`-c <special config file>` which
 references same IP address ``control-interface`` and references the copies of
 the key files with ``server-cert-file``, ``control-key-file`` and
 ``control-cert-file`` config lines after the ``control-enable`` statement.  The
-nsd-server authenticates the nsd-control client, and also the nsd-control client
-authenticates the nsd-server.
+nsd-server authenticates the nsd-control client, and also the
+:command:`nsd-control` client authenticates the nsd-server.
 
 When you are done with the configuration file, check the syntax using
 
@@ -153,8 +158,8 @@ When you are done with the configuration file, check the syntax using
 
     nsd-checkconf <name of configfile>
 
-The zone files are read by the daemon, which builds 'nsd.db' with their
-contents.  You can start the daemon with:
+The zone files are read by the daemon, which builds :file:`nsd.db` with their
+contents. You can start the daemon with:
 
 .. code-block:: text
 
@@ -162,27 +167,28 @@ contents.  You can start the daemon with:
     or with "nsd-control start" (which execs nsd again).
     or with nsd -c <name of configfile>
 
-To check if the daemon is running look with ps, top, or if you enabled
-nsd-control:
+To check if the daemon is running look with :command:`ps`, :command:`top`, or if
+you enabled command:`nsd-control`:
 
 .. code-block:: text
 
     nsd-control status
 
-To reload changed zone files after you edited them, without stopping
-the daemon, use this to check if files are modified: 
+To reload changed zone files after you edited them, without stopping the daemon,
+use this to check if files are modified: 
 
 .. code-block:: text
 
     kill -HUP `cat <name of nsd pidfile>`
 
-If you enabled nsd-control, you can reread with:
+If you enabled :command:`nsd-control`, you can re-read with:
 
 .. code-block:: text
 
     nsd-control reload
-
-With nsd-control you can also reread the config file (new zones, ..)
+    
+With :command:`nsd-control` you can also reread the config file, in case of new
+zones, etc.
 
 .. code-block:: text
 
@@ -203,16 +209,18 @@ To shut it down (for example on the system shutdown) do:
 
 NSD will automatically keep track of secondary zones and update them when
 needed. When primary zones are updated and reloaded notifications are sent to
-slave servers.
+secondary servers.
 
 The zone transfers are applied to :file:`nsd.db` by the daemon.  To write
-changed contents of the zone files for slave zones to disk in the text-based
+changed contents of the zone files for secondary zones to disk in the text-based
 zone file format, issue :command:`nsd-control` write.
 
-NSD will send notifications to slave zones if a master zone is updated. NSD will
-check for updates at master servers periodically and transfer the updated zone
-by AXFR/IXFR and reload the new zone contents. If you wish exert manual control
-use :command:`nsd-control notify`, :command:`transfer` and
-:command:`force_transfer` commands.  The transfer command will check for new
-versions of the secondary zones hosted by this NSD. The notify command will send
-notifications to the slave servers configured in ``notify:`` statements.
+NSD will send notifications to secondary zones if a primary zone is updated. NSD
+will check for updates at primary servers periodically and transfer the updated
+zone by AXFR/IXFR and reload the new zone contents.
+
+If you wish exert manual control use :command:`nsd-control notify`,
+:command:`transfer` and :command:`force_transfer` commands.  The transfer
+command will check for new versions of the secondary zones hosted by this NSD.
+The notify command will send notifications to the secondary servers configured
+in ``notify:`` statements.

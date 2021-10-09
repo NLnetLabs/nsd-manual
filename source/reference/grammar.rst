@@ -61,7 +61,7 @@ expecting a RR type.
 
 Again this is also not trivial because the class (IN) and TTL are also optional,
 if there are not specified we should substitute the current defaults from the
-zone we are parsing (this happens in the grammar). A DNS zonefile is further
+zone we are parsing (this happens in the grammar). A DNS zone file is further
 complicated by the unknown RR record types.
 
 Zone File Grammar

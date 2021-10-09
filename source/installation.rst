@@ -3,14 +3,15 @@
 Installation
 ------------
 
-To install your own copy of NSD you have two options: Use the version provided
+To install your own copy of NSD you have two options: use the version provided
 by your package manager, or download the source and building it yourself.
 
-Installing via the package manager is the easiest option, and on most systems
-even trivial. The downside is the distributed version can be outdated for some
-distributions or not have all the compile-time options included that you want.
-Building and compiling NSD yourself ensures that you have the latest version and
-all the compile-time options you desire.
+Installing via the `package manager
+<https://repology.org/project/nsd/versions>`_ is the easiest option, and on most
+systems even trivial. The downside is the distributed version can be outdated
+for some distributions or not have all the compile-time options included that
+you want. Building and compiling NSD yourself ensures that you have the latest
+version and all the compile-time options you desire.
 
 Introduction
 ============

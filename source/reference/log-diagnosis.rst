@@ -24,9 +24,9 @@ xfrd: max number of tcp connections (32) reached
     This line is printed when more than 32 zones need a zone transfer at the
     same time.  The value is a compile constant (``xfrd-tcp.h``), but if this
     happens often for you, we could make this a config option.  NSD will reuse
-    existing TCP connections to the same master (determined by IP address) to
-    transfer up to 64k zones from that master.  Thus this error should only
-    happen with more than 32 masters or more than 64\*32=2M zones that need to
+    existing TCP connections to the same primary (determined by IP address) to
+    transfer up to 64k zones from that primary.  Thus this error should only
+    happen with more than 32 primaries or more than 64\*32=2M zones that need to
     be updated at the same time.
 
     If this happens, more zones have to wait until a zone transfer completes

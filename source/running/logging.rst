@@ -15,13 +15,14 @@ on the same machine as NSD, we would recommend using a multiprocessor if
 performance is an issue. Of course it can also run on a separate machine that
 has MAC layer access to the network of the server.
 
-The ``nsd-control`` tool can output some statistics, with ``nsd-control stats``
-and ``nsd-control stats_noreset``.  In `contrib/nsd_munin_
+The :command:`nsd-control` tool can output some statistics, with
+:command:`nsd-control stats` and :command:`nsd-control stats_noreset`.  In
+`contrib/nsd_munin_
 <https://github.com/NLnetLabs/nsd/blob/master/contrib/nsd_munin_>`_ there is a
-Munin grapher plugin that uses it.  The output of ``nsd-control stats`` is easy
-to read (text only) with scripts.  The output values are documented on the
-``nsd-control`` man page.
+Munin grapher plugin that uses it.  The output of :command:`nsd-control stats`
+is easy to read (text only) with scripts.  The output values are documented on
+the :command:`nsd-control` man page.
 
 Another available tool is `dnstop
-<http://dns.measurement-factory.com/tools/dnstop/>`_, that displays DNS
+<http://dns.measurement-factory.com/tools/dnstop/>`_, which displays DNS
 statistics on your network.

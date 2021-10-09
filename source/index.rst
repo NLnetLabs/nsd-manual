@@ -1,9 +1,5 @@
 .. _doc_nsd:
 
-.. Warning:: This project has the goal to replace the `existing documentation
-             <https://www.nlnetlabs.nl/documentation/nsd/>`_ with an
-             open source community project. **This is a work in progress.**
-
 Name Server Daemon (NSD) by NLnet Labs
 ======================================
 

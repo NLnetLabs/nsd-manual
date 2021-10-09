@@ -13,8 +13,8 @@ that if you serve hundreds of thousands or even millions of queries per second,
 NSD is the leading implementation in the world. This authoritative DNS name
 server strives to be a reference implementation for emerging standards of the
 Internet Engineering Task Force (IETF). NSD is distributed free of charge in
-open source form under the BSD license. For most platforms, packages are
-available. 
+open source form under the BSD license. For most platforms, `packages
+<https://repology.org/project/nsd/versions>`_ are available. 
 
 This documentation is an open source project maintained by NLnet Labs. is edited
 via text files in the `reStructuredText

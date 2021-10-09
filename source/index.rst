@@ -56,6 +56,7 @@ attribution to NLnet Labs.
    :maxdepth: 2
    :caption: Reference
    
+   reference/configure-options
    reference/grammar
    reference/log-diagnosis
    

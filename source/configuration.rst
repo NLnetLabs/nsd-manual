@@ -92,7 +92,7 @@ value with:
     notify-retry: 5
 
 Zone transfers can be secured with TSIG keys, replace NOKEY with the name of the
-TSIG key to use. See `Using TSIG <doc_nsd_tsig>`_ for details.
+TSIG key to use. See :ref:`Using TSIG <doc_nsd_tsig>` for details.
 
 Since NSD is written to be run on the root name servers, the config file  can to
 contain something like:
@@ -172,7 +172,9 @@ nsd-control:
 To reload changed zone files after you edited them, without stopping
 the daemon, use this to check if files are modified: 
 
-	kill -HUP `cat <name of nsd pidfile>`
+.. code-block:: text
+
+    kill -HUP `cat <name of nsd pidfile>`
 
 If you enabled nsd-control, you can reread with:
 

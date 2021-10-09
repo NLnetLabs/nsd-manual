@@ -48,6 +48,7 @@ attribution to NLnet Labs.
   
    running/logging
    running/using-tsig
+   running/zone-expiry
    running/interfaces
    running/tuning
 

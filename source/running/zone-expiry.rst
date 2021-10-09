@@ -1,0 +1,41 @@
+.. _doc_nsd_zone_expiry:
+
+Zone Expiry of Secondary Zones
+------------------------------
+
+NSD will keep track of the status of secondary zones, according to the  timing
+values in the SOA record for the zone. When the refresh time of a zone is
+reached, the serial number is checked and a zone transfer is started if the zone
+has changed.  Each master server is tried in turn.
+
+Master zones cannot expire, they are always served. Zones are master zones if
+they have no ``request-xfr:`` statements in the config file.
+
+After the expire timeout (from the SOA record at the zone apex) is reached, the
+zone becomes expired. NSD will return ``SERVFAIL`` for expired zones, and will
+attempt to perform a zone transfer from any of the masters. After a zone
+transfer succeeds, or if the master indicates that the SOA  serial number is
+still the same, the zone will be OK again.
+
+In contrast with e.g. BIND, the inception time for a slave zone is stored on
+disk (in ``xfrdfile: "xfrd.state"``), together with timeouts.  If a slave zone
+acquisition time is recent enough, this means that NSD can start serving a zone
+immediately on loading, without querying the master server.
+
+If your slave zone has expired and no masters can be reached, but you  still
+want NSD to serve the zone, then you can delete the :file:`xfrd.state` file, but
+leave the zonefile for the zone intact.  Make sure to stop NSD before you delete
+the file, as NSD writes it on exit.  Upon loading NSD will treat the zonefile
+that you as operator have provided as recent and will serve the zone.  Even
+though NSD will start to serve the zone immediately, the zone will expire after
+the timeout is reached again.  NSD will also attempt to confirm that you have
+provided the correct data by polling  the masters.  So when the master servers
+come back up, it will transfer the updated zone within <retry timeout from SOA>
+seconds.
+
+In general it is possible to provide zone files for both master and slave zones
+manually (say from email or rsync). Reload with SIGHUP or ``nsd-control reload``
+to read the new zonefile contents into the name database.  When this is done the
+new zone will be served. For master zones, NSD will issue notifications to all
+configured ``notify:`` targets. For slave zones the above happens; NSD attempts
+to validate the zone from the master (checking its SOA serial number).

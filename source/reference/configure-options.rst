@@ -14,8 +14,8 @@ CPPFLAGS=flags
     Specify the C preprocessor flags.  Such as ``-I<includedir>``.
 
 CFLAGS=flags
-    Specify the C compiler flags.  These include code generation, optimisation,
-    warning, and debugging flags.  These flags are also passed to the linker.
+    Specify the C compiler flags. These include code generation, optimisation,
+    warning, and debugging flags. These flags are also passed to the linker.
 
     The default for gcc is ``-g -O2``.
 
@@ -29,9 +29,8 @@ LIBS=libs
     Specify additional libraries to link with.
 
 --enable-root-server
-    Configure NSD as a root server. Unless this option is
-    specified, NSD will refuse to serve the ``.`` zone as a
-    misconfiguration safeguard.
+    Configure NSD as a root server. Unless this option is specified, NSD will
+    refuse to serve the ``.`` zone as a misconfiguration safeguard.
 
 --disable-ipv6
     Disables IPv6 support in NSD.
@@ -40,7 +39,7 @@ LIBS=libs
     Enable some internal development checks.  Useful if you want to modify NSD.
     This option enables the standard C "assert" macro and compiler warnings.
 
-    This will instruct NSD to be stricter when validating its input.  This could
+    This will instruct NSD to be stricter when validating its input. This could
     lead to a reduced service level.
 
 --enable-bind8-stats
@@ -90,11 +89,11 @@ LIBS=libs
     Shutdown priority for NSD. 
 
 --with-tcp-timeout=number
-    Set the default TCP timeout (in seconds). Default 120 seconds.
+    Set the default TCP timeout (in seconds). The default is 120 seconds.
 
 --disable-nsec3
     Disable NSEC3 support. With NSEC3 support enabled, very large zones, also
-    non-nsec3 zones, use about 20% more memory.
+    non-NSEC3 zones, use about 20% more memory.
 
 --disable-minimal-responses
     Disable minimal responses. If disabled, responses are more likely to get

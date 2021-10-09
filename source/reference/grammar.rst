@@ -16,11 +16,11 @@ lexer part is located in the file `zlexer.lex
 <https://github.com/NLnetLabs/nsd/blob/master/zlexer.lex>`_, the grammar is in
 `zparser.y <https://github.com/NLnetLabs/nsd/blob/master/zparser.y>`_.
 
-Zone file lexer
+Zone File Lexer
 ===============
 
-Finding a good grammar and lexer for BIND zonefiles is rather hard. There are no
-real keywords and the meaning of most of the strings depends on the position
+Finding a good grammar and lexer for BIND zone files is rather hard. There are
+no real keywords and the meaning of most of the strings depends on the position
 relative to the other strings. An example, the following is a valid SOA record:
 
 .. code-block:: text
@@ -64,7 +64,7 @@ if there are not specified we should substitute the current defaults from the
 zone we are parsing (this happens in the grammar). A DNS zonefile is further
 complicated by the unknown RR record types.
 
-Zone file grammar
+Zone File Grammar
 =================
 
 After the lexer was written the grammar itself is quite clean and nice. The

@@ -57,6 +57,7 @@ attribution to NLnet Labs.
    :caption: Reference
    
    reference/grammar
+   reference/log-diagnosis
    
 .. history
 .. authors

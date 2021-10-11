@@ -1,9 +1,5 @@
 .. _doc_nsd:
 
-.. Warning:: This project has the goal to replace the `existing documentation
-             <https://www.nlnetlabs.nl/documentation/nsd/>`_ with an
-             open source community project. **This is a work in progress.**
-
 Name Server Daemon (NSD) by NLnet Labs
 ======================================
 
@@ -17,8 +13,8 @@ that if you serve hundreds of thousands or even millions of queries per second,
 NSD is the leading implementation in the world. This authoritative DNS name
 server strives to be a reference implementation for emerging standards of the
 Internet Engineering Task Force (IETF). NSD is distributed free of charge in
-open source form under the BSD license. For most platforms, packages are
-available. 
+open source form under the BSD license. For most platforms, `packages
+<https://repology.org/project/nsd/versions>`_ are available. 
 
 This documentation is an open source project maintained by NLnet Labs. is edited
 via text files in the `reStructuredText
@@ -35,14 +31,32 @@ list. All the contents are under the permissive Creative Commons Attribution 3.0
 (`CC-BY 3.0 <https://creativecommons.org/licenses/by/3.0/>`_) license, with
 attribution to NLnet Labs.
 
-
 .. toctree::
    :maxdepth: 2
-   :name: toc-nsd
+   :caption: Getting Started
 
    installation
    configuration
-   tuning
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Running
+  
+   running/logging
+   running/using-tsig
+   running/zone-expiry
+   running/interfaces
+   running/tuning
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Reference
+   
+   reference/manual-pages
+   reference/configure-options
+   reference/log-diagnosis
+   reference/grammar
+   
 .. history
 .. authors
 .. license

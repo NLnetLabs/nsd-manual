@@ -3,14 +3,18 @@
 Installation
 ------------
 
-To install your own copy of NSD you have two options: Use the version provided
+To install your own copy of NSD you have two options: use the version provided
 by your package manager, or download the source and building it yourself.
 
-Installing via the package manager is the easiest option, and on most systems
-even trivial. The downside is the distributed version can be outdated for some
-distributions or not have all the compile-time options included that you want.
-Building and compiling NSD yourself ensures that you have the latest version and
-all the compile-time options you desire.
+Installing via the `package manager
+<https://repology.org/project/nsd/versions>`_ is the easiest option, and on most
+systems even trivial. The downside is the distributed version can be outdated
+for some distributions or not have all the compile-time options included that
+you want. Building and compiling NSD yourself ensures that you have the latest
+version and all the compile-time options you desire.
+
+Introduction
+============
 
 NSD consists of two programs: the zone compiler ``zonec`` and the name server
 ``nsd`` itself. The name server works with an intermediate database prepared by
@@ -96,15 +100,14 @@ configuration.
 
     ./configure
 
-When :command:`configure` gives no errors, we can continue to actually compiling
-NSD. For this NSD uses :command:`make`. Be warned that compiling might take a
-while.
+If :command:`configure` gives no errors, we can continue to actually try compiling
+NSD using :command:`make`; compilation might take a while.
 
 .. code-block:: bash
 
     make
 
-When we have a successful compilation, we can install NSD to make available for
+After successfully compiling, we can install NSD to make it available for
 the machine.
 
 .. code-block:: bash
@@ -121,8 +124,8 @@ Testing
 
 A simple test to determine if the installation was successful is to invoke the
 :command:`nsd` command with the :option:`-V` option, which is the "version"
-option. This shows the version and build options used, as well as proving that
-the install was successful.
+option. This shows the version and build options used and proves installation
+was successful.
 
 .. code-block:: bash
 

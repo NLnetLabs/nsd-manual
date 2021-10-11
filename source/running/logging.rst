@@ -11,8 +11,8 @@ It is better to leave logging and tracing to separate dedicated tools.
 The `CAIDA dnsstat tool <https://www.caida.org/catalog/software/dnsstat/>`_ can
 easily be configured and/or modified to suit local statistics requirements
 without any danger of affecting the name server itself. We have run ``dnsstat``
-on the same machine as NSD, we would recommend using a multiprocessor if
-performance is an issue. Of course it can also run on a separate machine that
+on the same machine as NSD, and we would recommend using a multiprocessor if
+performance is an issue. Of course, ``dnsstat`` can also run on a separate machine that
 has MAC layer access to the network of the server.
 
 The :command:`nsd-control` tool can output some statistics, with

@@ -1,10 +1,9 @@
 .. _doc_nsd_tsig:
 
-Using TSIG
+Using TSIG (Transaction Signature)
 ----------
 
-NSD supports TSIG for any query to the server, for zone transfer and for notify
-sending and receiving.
+NSD supports TSIG (Transaction Signature) for zone transfer and for notify sending and receiving, for any query to the server.
 
 TSIG keys are based on shared secrets. These must be configured in the config
 file. To keep the secret in a separate file use ``include: "filename"`` to

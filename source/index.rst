@@ -8,11 +8,7 @@ authoritative DNS name server. It has been developed for operations in
 environments where speed, reliability, stability and security are of high
 importance.
 
-NSD has a pure design philosophy that prioritises raw performance. This means
-that if you serve hundreds of thousands or even millions of queries per second,
-NSD is the leading implementation in the world. This authoritative DNS name
-server strives to be a reference implementation for emerging standards of the
-Internet Engineering Task Force (IETF). NSD is distributed free of charge in
+NSD is designed with a pure philosophy that prioritises raw performance. This means that if you serve hundreds of thousands or even millions of queries per second, NSD is the leading implementation in the world. This authoritative DNS name server strives to be a reference implementation for emerging standards of the Internet Engineering Task Force (IETF). NSD is distributed free of charge in
 open source form under the BSD license. For most platforms, `packages
 <https://repology.org/project/nsd/versions>`_ are available. 
 

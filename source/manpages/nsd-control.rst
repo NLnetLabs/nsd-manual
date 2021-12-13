@@ -16,7 +16,7 @@ nsd-control(8)
         <b>nsd-control</b> [<b>-c</b> <i>cfgfile</i>] [<b>-s</b> <i>server</i>] <i>command</i>
 
     <b>DESCRIPTION</b>
-        <b>nsd-control</b>  performs  remote  administration on the <a href="/documentation/nsd/nsd/"><i>nsd</i>(8)</a> DNS server.
+        <b>nsd-control</b>  performs  remote  administration on the <a href="nsd.html"><i>nsd</i>(8)</a> DNS server.
         It reads the configuration file, contacts  the  nsd  server  over  SSL,
         sends the command and displays the result.
 
@@ -35,7 +35,7 @@ nsd-control(8)
     <b>COMMANDS</b>
         There are several commands that the server understands.
 
-        <b>start</b>  Start  the  server.  Simply execs <a href="/documentation/nsd/nsd/"><i>nsd</i>(8)</a>.  The nsd executable is
+        <b>start</b>  Start  the  server.  Simply execs <a href="nsd.html"><i>nsd</i>(8)</a>.  The nsd executable is
                 searched for in the <b>PATH</b> set in the environment.  It is  started
                 with  the  config  file specified using <i>-c</i> or the default config
                 file.
@@ -363,7 +363,7 @@ nsd-control(8)
                 trol.pem).
 
     <b>SEE</b> <b>ALSO</b>
-        <a href="/documentation/nsd/nsd.conf/"><i>nsd.conf</i>(5)</a>, <a href="/documentation/nsd/nsd/"><i>nsd</i>(8)</a>, <a href="/documentation/nsd/nsd-checkconf/"><i>nsd-checkconf</i>(8)</a>
+        <a href="nsd.conf.html"><i>nsd.conf</i>(5)</a>, <a href="nsd.html"><i>nsd</i>(8)</a>, <a href="nsd-checkconf.html"><i>nsd-checkconf</i>(8)</a>
 
 
 

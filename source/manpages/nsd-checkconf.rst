@@ -74,7 +74,7 @@ nsd-checkconf(8)
                 default <b>NSD</b> configuration file
 
     <b>SEE</b> <b>ALSO</b>
-        <a href="/documentation/nsd/nsd/"><i>nsd</i>(8)</a>, <a href="/documentation/nsd/nsd.conf/"><i>nsd.conf</i>(5)</a>, <a href="/documentation/nsd/nsd-control/"><i>nsd-control</i>(8)</a>
+        <a href="nsd.html"><i>nsd</i>(8)</a>, <a href="nsd.conf.html"><i>nsd.conf</i>(5)</a>, <a href="nsd-control.html"><i>nsd-control</i>(8)</a>
 
     <b>AUTHORS</b>
         <b>NSD</b> was written by NLnet Labs and RIPE NCC joint team. Please see CRED-

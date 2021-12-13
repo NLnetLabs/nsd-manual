@@ -31,7 +31,7 @@ nsd-checkzone(8)
                 The file to read, eg. "zones/example.com.zone.signed".
 
     <b>SEE</b> <b>ALSO</b>
-        <a href="/documentation/nsd/nsd/"><i>nsd</i>(8)</a>, <a href="/documentation/nsd/nsd-checkconf/"><i>nsd-checkconf</i>(8)</a>
+        <a href="nsd.html"><i>nsd</i>(8)</a>, <a href="nsd-checkconf.html"><i>nsd-checkconf</i>(8)</a>
 
     <b>AUTHORS</b>
         <b>NSD</b> was written by NLnet Labs and RIPE NCC joint team. Please see CRED-

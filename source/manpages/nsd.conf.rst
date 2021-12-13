@@ -466,7 +466,7 @@ nsd.conf(5)
 
                 The  content  of  this  file  must  be  manipulated   with   the
                 <b>add</b><i>_</i><b>cookie</b><i>_</i><b>secret</b>, <b>drop</b><i>_</i><b>cookie</b><i>_</i><b>secret</b> and <b>activate</b><i>_</i><b>cookie</b><i>_</i><b>secret</b>
-                commands to the <a href="/documentation/nsd/nsd-control/"><i>nsd-control</i>(8)</a> tool. Please see that manpage how
+                commands to the <a href="nsd-control.html"><i>nsd-control</i>(8)</a> tool. Please see that manpage how
                 to perform a safe cookie secret rollover.
 
         <a id="tls-service-key"><b>tls-service-key:</b></a> &lt;filename&gt;
@@ -512,7 +512,7 @@ nsd.conf(5)
 
     <b>Remote</b> <b>Control</b>
         The  <b>remote-control:</b>  clause  is  used  to  set  options  for using the
-        <a href="/documentation/nsd/nsd-control/"><i>nsd-control</i>(8)</a> tool to give commands to the running NSD server.  It  is
+        <a href="nsd-control.html"><i>nsd-control</i>(8)</a> tool to give commands to the running NSD server.  It  is
         disabled by default, and listens for localhost by default.  It uses TLS
         over TCP where the server and client authenticate to  each  other  with
         self-signed  certificates.   The self-signed certificates can be gener-
@@ -999,7 +999,7 @@ nsd.conf(5)
                 default <b>NSD</b> configuration file
 
     <b>SEE</b> <b>ALSO</b>
-        <a href="/documentation/nsd/nsd/"><i>nsd</i>(8)</a>, <a href="/documentation/nsd/nsd-checkconf/"><i>nsd-checkconf</i>(8)</a>, <a href="/documentation/nsd/nsd-control/"><i>nsd-control</i>(8)</a>
+        <a href="nsd.html"><i>nsd</i>(8)</a>, <a href="nsd-checkconf.html"><i>nsd-checkconf</i>(8)</a>, <a href="nsd-control.html"><i>nsd-control</i>(8)</a>
 
     <b>AUTHORS</b>
         <b>NSD</b> was written by NLnet Labs and RIPE NCC joint team. Please see CRED-

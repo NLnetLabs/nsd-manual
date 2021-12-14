@@ -37,9 +37,9 @@ except for the :option:`-v` and :option:`-h` options. If options are specified
 on the commandline,  the options on the commandline take precedence over the
 options in the configfile.
 
-Normally :command:`NSD` should be started with the ``nsd-control(8) start``
-command invoked from a :file:`/etc/rc.d/nsd.sh` script or similar at the
-operating system startup.
+Normally :command:`NSD` should be started with the :manpage:`nsd-control(8)`
+``start`` command invoked from a :file:`/etc/rc.d/nsd.sh` script or similar at
+the operating system startup.
 
 .. option:: -4
 
@@ -86,7 +86,7 @@ operating system startup.
       
       Add the specified  *nsid* to the EDNS section of the answer when queried
       with an NSID EDNS enabled packet. As a sequence of hex characters or
-      with ascii_ prefix and then an ascii string.
+      with ascii\_ prefix and then an ascii string.
 
 .. option:: -l logfile
 

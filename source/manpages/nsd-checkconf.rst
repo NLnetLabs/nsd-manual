@@ -3,25 +3,25 @@
 nsd-checkconf(8)
 ================
 
-SYNOPSIS
+Synopsis
 --------
 
 :command:`nsd-checkconf` :option:`-v` :option:`-f` :option:`-h` [:option:`-o`
 ``option``] [:option:`-z` ``zonename``] [:option:`-p` ``pattern``] [:option:`-s`
 ``keyname``] [:option:`-t` ``tlsauthname``] configfile
 
-DESCRIPTION
+Description
 -----------
 
 :command:`nsd-checkconf` reads a configuration file. It prints parse errors to
 standard error, and performs additional checks on the contents. The configfile
-format is described in nsd.conf(5).
+format is described in `nsd.conf(5) <nsd.conf.html>`_.
 
 The utility of this program is to check a config file for errors before using it
 in nsd(8). This program can also be used for shell scripts to access the nsd
 config file, using the :option:`-o` and :option:`-z` options.
 
-OPTIONS
+Options
 -------
 
 .. option:: -v 
@@ -77,15 +77,16 @@ OPTIONS
         The  :option:`-o`,  :option:`-s`  and :option:`-z` option print
         configfile options to standard output.
 
-FILES
+Files
 -----
 
 /etc/nsd/nsd.conf
 
         default NSD configuration file
 
-SEE ALSO
+See Also
 --------
 
-nsd(8), nsd.conf(5), nsd-control(8)
+`nsd(8) <nsd.html>`_, `nsd.conf(5) <nsd.conf.html>`_, 
+`nsd-control(8) <nsd-control.html>`_
 

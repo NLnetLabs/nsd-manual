@@ -1,43 +1,35 @@
 .. _doc_nsd_checkzone_manpage:
 
 nsd-checkzone(8)
-----------------
+================
 
-.. raw:: html
+Synopsis
+--------
 
-    <pre class="man">nsd-checkzone(8)                   nsd 4.3.9                  nsd-checkzone(8)
+:command:`nsd-checkzone` [:option:`-h`] ``zonename`` ``zonefile``
 
+Description
+-----------
 
+:command:`nsd-checkzone` reads a DNS zone file and checks it for errors. It
+prints errors to stderr. On failure it exits with nonzero exit status.
 
-    <b>NAME</b>
-        <b>nsd-checkzone</b> - NSD zone file syntax checker.
+This is used to check files before feeding them to the :manpage:`nsd(8)` daemon.
 
-    <b>SYNOPSIS</b>
-        <b>nsd-checkzone</b> [<b>-h</b>] <i>zonename</i> <i>zonefile</i>
+Options
+-------
 
-    <b>DESCRIPTION</b>
-        <b>nsd-checkzone</b>  reads  a  DNS  zone  file  and checks it for errors.  It
-        prints errors to stderr.  On failure it exits with nonzero exit status.
+.. option::  -h
+    
+    Print usage help information and exit.
 
-        This is used to check files before feeding them to the nsd(8) daemon.
+zonename
+    The name of the zone to check, eg. "example.com".
 
-    <b>OPTIONS</b>
-        <b>-h</b>     Print usage help information and exit.
+zonefile
+    The file to read, eg. :file:`zones/example.com.zone.signed`.
 
-        <i>zonename</i>
-                The name of the zone to check, eg. "example.com".
-
-        <i>zonefile</i>
-                The file to read, eg. "zones/example.com.zone.signed".
-
-    <b>SEE</b> <b>ALSO</b>
-        <a href="nsd.html"><i>nsd</i>(8)</a>, <a href="nsd-checkconf.html"><i>nsd-checkconf</i>(8)</a>
-
-    <b>AUTHORS</b>
-        <b>NSD</b> was written by NLnet Labs and RIPE NCC joint team. Please see CRED-
-        ITS file in the distribution for further details.
-
-
-
-    NLnet Labs                       Dec  9, 2021                 nsd-checkzone(8)
-    </pre>
+See Also
+--------
+    
+:manpage:`nsd(8)`, :manpage:`nsd-checkconf(8)`

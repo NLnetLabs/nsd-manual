@@ -60,7 +60,8 @@ the operating system startup.
 .. option:: -c configfile
 
       Read specified *configfile* instead of the default 
-      :file:`/etc/nsd/nsd.conf`. For format description see nsd.conf(5).
+      :file:`/etc/nsd/nsd.conf`. For format description see 
+      :manpage:`nsd.conf(5)`.
 
 .. option:: -d
 

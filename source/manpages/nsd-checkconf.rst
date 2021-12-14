@@ -18,8 +18,8 @@ standard error, and performs additional checks on the contents. The configfile
 format is described in :manpage:`nsd.conf(5)`.
 
 The utility of this program is to check a config file for errors before using it
-in nsd(8). This program can also be used for shell scripts to access the nsd
-config file, using the :option:`-o` and :option:`-z` options.
+in :manpage:`nsd(8)`. This program can also be used for shell scripts to access
+the nsd config file, using the :option:`-o` and :option:`-z` options.
 
 Options
 -------

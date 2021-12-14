@@ -161,16 +161,13 @@ SIGUSR1
 Files
 -----
 
-/var/db/nsd/nsd.db
-      
+/var/db/nsd/nsd.db   
       default :command:`NSD` database
 
 /var/run/nsd.pid
-      
       the process id of the name server.
 
 /etc/nsd/nsd.conf
-      
       default :command:`NSD` configuration file
 
 Diagnostics

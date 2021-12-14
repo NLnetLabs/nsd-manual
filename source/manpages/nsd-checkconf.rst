@@ -81,7 +81,6 @@ Files
 -----
 
 /etc/nsd/nsd.conf
-
         default NSD configuration file
 
 See Also

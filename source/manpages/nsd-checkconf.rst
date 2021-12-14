@@ -15,7 +15,7 @@ Description
 
 :command:`nsd-checkconf` reads a configuration file. It prints parse errors to
 standard error, and performs additional checks on the contents. The configfile
-format is described in `nsd.conf(5) <nsd.conf.html>`_.
+format is described in :manpage:`nsd.conf(5)`.
 
 The utility of this program is to check a config file for errors before using it
 in nsd(8). This program can also be used for shell scripts to access the nsd
@@ -87,6 +87,5 @@ Files
 See Also
 --------
 
-`nsd(8) <nsd.html>`_, `nsd.conf(5) <nsd.conf.html>`_, 
-`nsd-control(8) <nsd-control.html>`_
+:manpage:`nsd(8)`, :manpage:`nsd.conf(5)`, :manpage:`nsd.control(8)`
 

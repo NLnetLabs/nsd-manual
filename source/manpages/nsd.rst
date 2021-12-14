@@ -1,159 +1,184 @@
 .. _doc_nsd_manpage:
 
 nsd(8)
-------
+======
 
-.. raw:: html
+Synopsis
+--------
 
-    <pre class="man">NSD(8)                             NSD 4.3.9                            NSD(8)
+:command:`nsd` [:option:`-4`] [:option:`-6`] [:option:`-a`
+``ip-address[@port]``] [:option:`-c` ``configfile``] [:option:`-d`]
+[:option:`-f` ``database``] [:option:`-h`] [:option:`-i` ``identity``]
+[:option:`-I` ``nsid``] [:option:`-l` ``logfile``] [:option:`-N`
+``server-count``] [:option:`-n` ``noncurrent-tcp-count``]  [:option:`-P`
+``pidfile``] [:option:`-p` ``port``] [:option:`-s` ``seconds``] [:option:`-t`
+``chrootdir``] [:option:`-u` ``username``] [:option:`-V` ``level``]
+[:option:`-v`]
 
+Description
+-----------
 
+:command:`NSD` is a complete implementation of an  authoritative DNS nameserver.
+Upon startup, :command:`NSD` will read the database specified with :option:`-f`
+``database`` argument and put itself into background and answers queries on port
+53 or a different port specified with :option:`-p` ``port`` option. The database
+is created if it does not exist. By default, :command:`NSD` will bind to all
+local interfaces available. Use the :option:`-a` ``ip-address[@port]`` option to
+specify a single particular interface address to be bound. If this  option is
+given more than once, :command:`NSD` will bind its UDP and TCP sockets to all
+the specified ip-addresses separately. If IPv6 is enabled when :command:`NSD` is
+compiled an IPv6 address can also be specified.
 
-   <b>NAME</b>
-         <b>nsd</b> - Name Server Daemon (NSD) version 4.3.9.
+Options
+-------
 
-   <b>SYNOPSIS</b>
-         <b>nsd</b> [<b>-4</b>] [<b>-6</b>] [<b>-a</b> <i>ip-address[@port]</i>] [<b>-c</b> <i>configfile</i>] [<b>-d</b>] [<b>-f</b> <i>database</i>]
-         [<b>-h</b>] [<b>-i</b> <i>identity</i>] [<b>-I</b> <i>nsid</i>] [<b>-l</b> <i>logfile</i>] [<b>-N</b> <i>server-count</i>] [<b>-n</b> <i>noncur-</i>
-         <i>rent-tcp-count</i>]  [<b>-P</b> <i>pidfile</i>] [<b>-p</b> <i>port</i>] [<b>-s</b> <i>seconds</i>] [<b>-t</b> <i>chrootdir</i>] [<b>-u</b>
-         <i>username</i>] [<b>-V</b> <i>level</i>] [<b>-v</b>]
+All the options can be specified in the configfile (:option:`-c` argument),
+except for the :option:`-v` and :option:`-h` options. If options are specified
+on the commandline,  the options on the commandline take precedence over the
+options in the configfile.
 
-   <b>DESCRIPTION</b>
-         <b>NSD</b> is a complete implementation of an  authoritative  DNS  nameserver.
-         Upon startup, <b>NSD</b> will read the database specified with <b>-f</b> <i>database</i> ar-
-         gument and put itself into background and answers queries on port 53 or
-         a different port specified with <b>-p</b> <i>port</i> option. The <i>database</i> is created
-         if it does not exist. By default, <b>NSD</b> will bind to all local interfaces
-         available. Use the <b>-a</b> <i>ip-address[@port]</i> option to specify a single par-
-         ticular interface address to be bound. If this  option  is  given  more
-         than  once,  <b>NSD</b> will bind its UDP and TCP sockets to all the specified
-         ip-addresses separately. If IPv6 is enabled when  <b>NSD</b>  is  compiled  an
-         IPv6 address can also be specified.
+Normally :command:`NSD` should be started with the ``nsd-control(8) start``
+command invoked from a :file:`/etc/rc.d/nsd.sh` script or similar at the
+operating system startup.
 
-   <b>OPTIONS</b>
-         All  the options can be specified in the configfile ( <b>-c</b> argument), ex-
-         cept for the <b>-v</b> and <b>-h</b> options. If options are specified on the comman-
-         dline,  the options on the commandline take precedence over the options
-         in the configfile.
+.. option:: -4
 
-         Normally <b>NSD</b> should be started with the `nsd-control(8) start`  command
-         invoked from a <i>/etc/rc.d/nsd.sh</i> script or similar at the operating sys-
-         tem startup.
+      Only listen to IPv4 connections.
 
-         <b>-4</b>     Only listen to IPv4 connections.
+.. option:: -6
+      
+      Only listen to IPv6 connections.
+ 
+.. option:: -a ip-address[@port]
 
-         <b>-6</b>     Only listen to IPv6 connections.
+      Listen to the specified  ip-address. The ip-address must be specified in
+      numeric format (using the standard IPv4 or IPv6 notation). Optionally, a
+      port number can be given. This flag can be specified multiple times to
+      listen to multiple IP addresses. If this flag is not specified,
+      :command:`NSD` listens to the wildcard interface.
 
-         <b>-a</b> <i>ip-address[@port]</i>
-               Listen to the specified  <i>ip-address</i>.   The  <i>ip-address</i>  must  be
-               specified in numeric format (using the standard IPv4 or IPv6 no-
-               tation). Optionally, a port number can be given.  This flag  can
-               be  specified multiple times to listen to multiple IP addresses.
-               If this flag is not specified, <b>NSD</b> listens to the  wildcard  in-
-               terface.
+.. option:: -c configfile
 
-         <b>-c</b> <i>configfile</i>
-               Read    specified    <i>configfile</i>    instead    of   the   default
-               <i>/etc/nsd/nsd.conf</i>.  For format description see nsd.conf(5).
+      Read specified *configfile* instead of the default 
+      :file:`/etc/nsd/nsd.conf`. For format description see nsd.conf(5).
 
-         <b>-d</b>     Do not fork, stay in the foreground.
+.. option:: -d
 
-         <b>-f</b> <i>database</i>
-               Use  the  specified  <i>database</i>  instead   of   the   default   of
-               <i>'/var/db/nsd/nsd.db'</i>.  If a <b>zonesdir:</b> is specified in the config
-               file this path can be relative to that directory.
+      Do not fork, stay in the foreground.
 
-         <b>-h</b>     Print help information and exit.
+.. option:: -f database
 
-         <b>-i</b> <i>identity</i>
-               Return the specified <i>identity</i> when asked for  <i>CH</i>  <i>TXT</i>  <i>ID.SERVER</i>
-               (This  option is used to determine which server is answering the
-               queries when they are anycast). The default is the name returned
-               by gethostname(3).
+      Use the specified *database* instead of the default of
+      :file:`/var/db/nsd/nsd.db`. If a ``zonesdir:`` is specified in the config
+      file this path can be relative to that directory.
 
-         <b>-I</b> <i>nsid</i>
-               Add  the  specified  <i>nsid</i> to the EDNS section of the answer when
-               queried with an NSID EDNS enabled packet.  As a sequence of  hex
-               characters or with ascii_ prefix and then an ascii string.
+.. option:: -h
+      
+      Print help information and exit.
 
-         <b>-l</b> <i>logfile</i>
-               Log messages to the specified <i>logfile</i>.  The default is to log to
-               stderr and syslog. If a <b>zonesdir:</b> is  specified  in  the  config
-               file this path can be relative to that directory.
+.. option:: -i identity
 
-         <b>-N</b> <i>count</i>
-               Start  <i>count</i> <b>NSD</b> servers. The default is 1. Starting more than a
-               single server is only useful  on  machines  with  multiple  CPUs
-               and/or network adapters.
+      Return the specified *identity* when asked for *CH TXT ID.SERVER* (This
+      option is used to determine which server is answering the queries when
+      they are anycast). The default is the name returned by gethostname(3).
 
-         <b>-n</b> <i>number</i>
-               The maximum <i>number</i> of concurrent TCP connection that can be han-
-               dled by each server. The default is 100.
+.. option:: -I nsid
+      
+      Add the specified  *nsid* to the EDNS section of the answer when queried
+      with an NSID EDNS enabled packet. As a sequence of hex characters or
+      with ascii_ prefix and then an ascii string.
 
-         <b>-P</b> <i>pidfile</i>
-               Use the specified <i>pidfile</i> instead of the platform  specific  de-
-               fault,  which  is  mostly  <i>/var/run/nsd.pid</i>.   If a <b>zonesdir:</b> is
-               specified in the config file, this path can be relative to  that
-               directory.
+.. option:: -l logfile
 
-         <b>-p</b> <i>port</i>
-               Answer the queries on the specified <i>port</i>.  Normally this is port
-               53.
+      Log messages to the specified logfile. The default is to log to stderr and
+      syslog. If a ``zonesdir:`` is specified in the config file this path can
+      be relative to that directory.
 
-         <b>-s</b> <i>seconds</i>
-               Produce statistics dump every <i>seconds</i> seconds. This is equal  to
-               sending <i>SIGUSR1</i> to the daemon periodically.
+.. option:: -N count
 
-         <b>-t</b> <i>chroot</i>
-               Specifies a directory to <i>chroot</i> to upon startup. This option re-
-               quires you to ensure that appropriate  syslogd(8)  socket  (e.g.
-               <i>chrootdir</i>  /dev/log)  is  available, otherwise <b>NSD</b> won't produce
-               any log output.
+      Start count :command:`NSD` servers. The default is 1. Starting more than
+      a single server is only useful on machines with multiple CPUs and/or
+      network adapters.
 
-         <b>-u</b> <i>username</i>
-               Drop user and group privileges to those of <i>username</i> after  bind-
-               ing  the  socket.  The <i>username</i> must be one of: username, id, or
-               id.gid. For example: nsd, 80, or 80.80.
+.. option:: -n number
 
-         <b>-V</b> <i>level</i>
-               This value specifies the verbosity level  for  (non-debug)  log-
-               ging.  Default is 0.
+      The maximum number of concurrent TCP connection that can be handled by
+      each server. The default is 100.
 
-         <b>-v</b>     Print the version number of <b>NSD</b> to standard error and exit.
+.. option:: -P pidfile
 
-         <b>NSD</b> reacts to the following signals:
+      Use the specified *pidfile* instead of the platform specific default,
+      which is mostly :file:`/var/run/nsd.pid`. If a ``zonesdir:`` is specified
+      in the config file, this path can be relative to that directory.
 
-         SIGTERM
-               Stop answering queries, shutdown, and exit normally.
+.. option:: -p port
 
-         SIGHUP Reload.   Scans zone files and if changed (mtime) reads them in.
-               Also reopens the logfile (assists logrotation).
+      Answer the queries on the specified *port*. Normally this is port 53.
 
-         SIGUSR1
-               Dump BIND8-style statistics into the log. Ignored otherwise.
+.. option:: -s seconds
 
-   <b>FILES</b>
-         "/var/db/nsd/nsd.db"
-               default <b>NSD</b> database
+      Produce statistics dump every *seconds* seconds. This is equal to sending
+      *SIGUSR1* to the daemon periodically.
 
-         /var/run/nsd.pid
-               the process id of the name server.
+.. option:: -t chroot
 
-         /etc/nsd/nsd.conf
-               default <b>NSD</b> configuration file
+      Specifies a directory to *chroot* to upon startup. This option requires
+      you to ensure that appropriate  *syslogd(8)* socket (e.g. *chrootdir*
+      /dev/log)  is  available, otherwise :command:`NSD` won't produce any log
+      output.
 
-   <b>DIAGNOSTICS</b>
-         <b>NSD</b> will log all the problems via the standard syslog(8) <i>daemon</i>  facil-
-         ity, unless the <b>-d</b> option is specified.
+.. option:: -u username
 
-   <b>SEE</b> <b>ALSO</b>
-         <a href="nsd.conf.html"><i>nsd.conf</i>(5)</a>, <a href="nsd-checkconf.html"><i>nsd-checkconf</i>(8)</a>, <a href="nsd-control.html"><i>nsd-control</i>(8)</a>
+      Drop user and group privileges to those of *username* after  binding the
+      socket. The *username* must be one of: username, id, or id.gid. For
+      example: nsd, 80, or 80.80.
 
-   <b>AUTHORS</b>
-         <b>NSD</b> was written by NLnet Labs and RIPE NCC joint team. Please see CRED-
-         ITS file in the distribution for further details.
+.. option:: -V level
 
+      This value specifies the verbosity level for (non-debug) logging. Default
+      is 0.
 
+.. option:: -v     
+      
+      Print the version number of :command:`NSD` to standard error and exit.
 
-   NLnet Labs                       Dec  9, 2021                           NSD(8)
-   </pre>
+:command:`NSD` reacts to the following signals:
+
+SIGTERM
+      
+      Stop answering queries, shutdown, and exit normally.
+
+SIGHUP Reload.   
+      
+      Scans zone files and if changed (mtime) reads them in. Also reopens the
+      logfile (assists logrotation).
+
+SIGUSR1
+      
+      Dump BIND8-style statistics into the log. Ignored otherwise.
+
+Files
+-----
+
+/var/db/nsd/nsd.db
+      
+      default :command:`NSD` database
+
+/var/run/nsd.pid
+      
+      the process id of the name server.
+
+/etc/nsd/nsd.conf
+      
+      default :command:`NSD` configuration file
+
+Diagnostics
+-----------
+
+:command:`NSD` will log all the problems via the standard *syslog(8)* daemon facility,
+unless the :option:`-d` option is specified.
+
+See Also
+--------
+
+:manpage:`nsd.conf(5)`, :manpage:`nsd-checkconf(8)`, :manpage:`nsd-control(8)`

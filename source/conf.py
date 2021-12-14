@@ -147,9 +147,11 @@ latex_documents = [
 # (source start file, name, description, authors, manual section).
 man_pages = [
     ('manpages/nsd-checkconf', 'nsd-checkconf', 'NSD zone file syntax checker',
+     "NSD was written by NLnet Labs and RIPE NCC joint team. Please see CREDITS file in the distribution for further details.", 8), 
+    ('manpages/nsd', 'nsd', 'Name Server Daemon (NSD)',
      "NSD was written by NLnet Labs and RIPE NCC joint team. Please see CREDITS file in the distribution for further details.", 8)
 ]
-
+manpages_url = '{page}.html'
 
 # -- Options for Texinfo output ----------------------------------------------
 

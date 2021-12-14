@@ -11,7 +11,10 @@ them.
 Configuration file
 ==================
 
-The configuration is specified in the configuration file, which can be supplied to NSD using the :option:`-c` option. In `our refence<https://www.nlnetlabs.nl/documentation/nsd/nsd.conf/>`_ (and on your system) an example ``nsd.conf`` can be found.
+The configuration is specified in the configuration file, which can be supplied
+to NSD using the :option:`-c` option. In :ref:`our
+refence<doc_nsd_conf_manpage>` (and on your system) an example ``nsd.conf`` can
+be found.
 
 The basic principles are:
 

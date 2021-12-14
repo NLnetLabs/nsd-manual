@@ -154,7 +154,7 @@ man_pages = [
      "NSD was written by NLnet Labs and RIPE NCC joint team. Please see CREDITS file in the distribution for further details.", 8),
      ('manpages/nsd.conf', 'nsd.conf', 'NSD configuration file.',
      "NSD was written by NLnet Labs and RIPE NCC joint team. Please see CREDITS file in the distribution for further details.", 5),
-     ('manpages/nsd-control', 'nsd-control, nsd-control-setup', 'NSD remote server control utility.',
+     ('manpages/nsd-control', 'nsd-control', 'NSD remote server control utility.',
      "NSD was written by NLnet Labs and RIPE NCC joint team. Please see CREDITS file in the distribution for further details.", 8)
 ]
 manpages_url = '{page}.html'

@@ -153,7 +153,9 @@ man_pages = [
      ('manpages/nsd-checkzone', 'nsd-checkzone', 'NSD zone file syntax checker.',
      "NSD was written by NLnet Labs and RIPE NCC joint team. Please see CREDITS file in the distribution for further details.", 8),
      ('manpages/nsd.conf', 'nsd.conf', 'NSD configuration file.',
-     "NSD was written by NLnet Labs and RIPE NCC joint team. Please see CREDITS file in the distribution for further details.", 5)
+     "NSD was written by NLnet Labs and RIPE NCC joint team. Please see CREDITS file in the distribution for further details.", 5),
+     ('manpages/nsd-control', 'nsd-control, nsd-control-setup', 'NSD remote server control utility.',
+     "NSD was written by NLnet Labs and RIPE NCC joint team. Please see CREDITS file in the distribution for further details.", 8)
 ]
 manpages_url = '{page}.html'
 

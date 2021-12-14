@@ -6,7 +6,7 @@ nsd-checkzone(8)
 Synopsis
 --------
 
-:command:`nsd-checkzone` [:option:`-h`] ``zonename`` ``zonefile``
+:command:`nsd-checkzone` [:option:`-h`] zonename zonefile
 
 Description
 -----------

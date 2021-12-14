@@ -25,9 +25,9 @@ copyright = '2021, NLnet Labs'
 author = 'NLnet Labs (CC-BY 3.0)'
 
 # The short X.Y version
-version = ''
+version = '4.3.9'
 # The full version, including alpha/beta/rc tags
-release = ''
+release = '4.3.9'
 
 # -- General configuration ---------------------------------------------------
 
@@ -146,10 +146,18 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'nsdusermanual', 'NSD User Manual',
-     [author], 1)
+    ('manpages/nsd', 'nsd', 'Name Server Daemon (NSD)',
+     "NSD was written by NLnet Labs and RIPE NCC joint team. Please see CREDITS file in the distribution for further details.", 8),
+     ('manpages/nsd-checkconf', 'nsd-checkconf', 'NSD configuration file checker.',
+     "NSD was written by NLnet Labs and RIPE NCC joint team. Please see CREDITS file in the distribution for further details.", 8), 
+     ('manpages/nsd-checkzone', 'nsd-checkzone', 'NSD zone file syntax checker.',
+     "NSD was written by NLnet Labs and RIPE NCC joint team. Please see CREDITS file in the distribution for further details.", 8),
+     ('manpages/nsd.conf', 'nsd.conf', 'NSD configuration file.',
+     "NSD was written by NLnet Labs and RIPE NCC joint team. Please see CREDITS file in the distribution for further details.", 5),
+     ('manpages/nsd-control', 'nsd-control, nsd-control-setup', 'NSD remote server control utility.',
+     "NSD was written by NLnet Labs and RIPE NCC joint team. Please see CREDITS file in the distribution for further details.", 8)
 ]
-
+manpages_url = '{page}.html'
 
 # -- Options for Texinfo output ----------------------------------------------
 

@@ -348,10 +348,10 @@ zone.slave
 Files
 -----
 
-:file:`/etc/nsd/nsd.conf`
+/etc/nsd/nsd.conf
         nsd configuration file.
 
-:file:`/etc/nsd`
+/etc/nsd
         directory with private keys (nsd_server.key and nsd_control.key) and
         self-signed certificates (nsd_server.pem and nsd_control.pem).
 

@@ -978,7 +978,7 @@ has for the resolver or caching thus have no equivalents for NSD.
 Files
 -----
 
-"/var/db/nsd/nsd.db"
+/var/db/nsd/nsd.db
         default :command:`NSD` database
 
 /etc/nsd/nsd.conf

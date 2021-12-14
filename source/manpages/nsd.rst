@@ -145,17 +145,14 @@ the operating system startup.
 
 :command:`NSD` reacts to the following signals:
 
-SIGTERM
-      
+SIGTERM 
       Stop answering queries, shutdown, and exit normally.
 
 SIGHUP Reload.   
-      
       Scans zone files and if changed (mtime) reads them in. Also reopens the
       logfile (assists logrotation).
 
 SIGUSR1
-      
       Dump BIND8-style statistics into the log. Ignored otherwise.
 
 Files

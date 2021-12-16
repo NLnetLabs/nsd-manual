@@ -49,7 +49,7 @@ attribution to NLnet Labs.
    running/tuning
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Manual Pages
 
    manpages/nsd

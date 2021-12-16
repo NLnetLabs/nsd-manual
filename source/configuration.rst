@@ -1,7 +1,7 @@
 .. _doc_nsd_configuration:
 
 Configuration
--------------
+=============
 
 NSD has a vast array of configuration options for advanced use cases. To
 configure the application, a ``nsd.conf`` configuration file used. The file
@@ -9,23 +9,22 @@ format has attributes and values, and some attributes have attributes inside
 them.
 
 Configuration file
-==================
+------------------
 
 The configuration is specified in the configuration file, which can be supplied
-to NSD using the :option:`-c` option. In :ref:`our
-refence<doc_nsd_conf_manpage>` (and on your system) an example ``nsd.conf`` can
-be found.
+to NSD using the :option:`-c` option. In :ref:`our refence
+<doc_nsd_conf_manpage>` (and on your system) an example ``nsd.conf`` can be
+found.
 
 The basic principles are:
 
-  - The used notation is ``attribute: value``
-  - Comments start with ``#`` and extend to the end of a line
-  - Empty lines are ignored, as is whitespace at the beginning of a line
-  - Quotes can be used, for names containing spaces, e.g. ``"file name.zone"``
+- The used notation is ``attribute: value``
+- Comments start with ``#`` and extend to the end of a line
+- Empty lines are ignored, as is whitespace at the beginning of a line
+- Quotes can be used, for names containing spaces, e.g. ``"file name.zone"``
 
-The example configuration below specifies options for the NSD server, zone files, primaries and
-secondaries.
-
+The example configuration below specifies options for the NSD server, zone
+files, primaries and secondaries.
 
 Here is an example config for ``example.com``:
 
@@ -60,12 +59,6 @@ Here is an example config for ``example.com``:
             zonefile: /etc/nsd/secondzone.com.zone
             allow-notify: 192.0.2.2 NOKEY
             request-xfr: 192.0.2.2 NOKEY
-=======
-Before running NSD you need to create a configuration file for it. The config
-file contains server settings, secret keys and zone settings. In the repository
-we provide a `sample configuration
-<https://github.com/NLnetLabs/nsd/blob/master/nsd.conf.sample.in>`_ to get
-started.
 
 The server settings start with a line with the keyword ``server:``. In the
 server settings set ``database: <file>`` with the filename of the name database

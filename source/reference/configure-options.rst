@@ -1,7 +1,7 @@
 .. _doc_nsd_configure_options:
 
 Configure Options
------------------
+=================
 
 NSD can be configured using GNU autoconf's configure script. In addition to
 standard configure options, one may use the following:

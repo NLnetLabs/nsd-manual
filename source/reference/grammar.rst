@@ -1,7 +1,7 @@
 .. _doc_nsd_grammar:
 
 Grammar for DNS Zone Files
---------------------------
+==========================
 
 .. Note:: It is near impossible to write a clean lexer/grammar for DNS 
           (:rfc:`1035`) zone files. At first it looks like it is easy to make 
@@ -17,7 +17,7 @@ lexer part is located in the file `zlexer.lex
 `zparser.y <https://github.com/NLnetLabs/nsd/blob/master/zparser.y>`_.
 
 Zone File Lexer
-===============
+---------------
 
 Finding a good grammar and lexer for BIND zone files is rather hard. There are
 no real keywords and the meaning of most of the strings depends on the position
@@ -65,7 +65,7 @@ zone we are parsing (this happens in the grammar). A DNS zone file is further
 complicated by the unknown RR record types.
 
 Zone File Grammar
-=================
+-----------------
 
 After the lexer was written the grammar itself is quite clean and nice. The
 basic idea is that every RR consists of single line (the parentheses are handled

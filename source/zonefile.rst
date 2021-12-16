@@ -1,14 +1,16 @@
 .. _doc_nsd_zonefile:
 
 Zonefile example
-----------------
+================
 
 On this page we give an example of a basic zone file and it's contents.
 
 Creating a zone
-===============
+---------------
 
-A zone needs a SOA (Source Of Authority) record. ``WHY?``  For the exact structure we refer you to the wiki page ``LINK https://en.wikipedia.org/wiki/SOA_record``.
+A zone needs a SOA (Source Of Authority) record. ``WHY?``  For the exact
+structure we refer you to the wiki page ``LINK
+https://en.wikipedia.org/wiki/SOA_record``.
 
 ..code::bash
 

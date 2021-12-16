@@ -1,7 +1,7 @@
 .. _doc_nsd_tuning:
 
 Tuning
-------
+======
 
 In version 4.3.0 of NSD, additional functionality was added to increase
 performance even more. Most notably, this includes processor affinity.
@@ -12,8 +12,9 @@ choices by default, like enabling the use of ``libevent`` at the configure stage
 to ensure the most efficient event mechanism is used on a given platform. e.g.
 ``epoll`` on Linux and ``kqueue`` on FreeBSD. Switches are available for
 operators who know the implementation on their system behaves correctly, like
-enabling the use of ``recvmmsg`` at the configure stage (:option:`--enable-recvmmsg`)
-to read multiple messages from a socket in one system call.
+enabling the use of ``recvmmsg`` at the configure stage
+(:option:`--enable-recvmmsg`) to read multiple messages from a socket in one
+system call.
 
 By default NSD forks (only) one server. Modern computer systems however, may
 have more than one processor, and usually have more than one core per processor.
@@ -25,11 +26,14 @@ packets evenly across server processes to balance the load.
 
 A couple of other options that the operator may want to consider:
 
-  1. Memory usage can be lowered (around 50%) by using zone files and disable the on-disk database by setting ``database: ""``.
-  2. TCP capacity can be significantly increased by setting ``tcp-count: 1000`` and ``tcp-timeout: 3``. Set ``tcp-reject-overflow: yes`` to prevent the kernel connection queue from growing.
+1. Memory usage can be lowered (around 50%) by using zone files and disable 
+   the on-disk database by setting ``database: ""``.
+2. TCP capacity can be significantly increased by setting ``tcp-count: 1000``
+   and ``tcp-timeout: 3``. Set ``tcp-reject-overflow: yes`` to prevent the 
+   kernel connection queue from growing.
   
 Processor Affinity
-==================
+------------------
 
 The aforementioned settings provide an easy way to increase performance without
 the need for in-depth knowledge of the hardware. For operators that require even
@@ -65,7 +69,7 @@ stalls/flushes.
       xfrd-cpu-affinity: 2
       
 Partition Sockets
-=================
+-----------------
 
 ``ip-address:`` options in the ``server:`` clause can be configured per server
 or set of servers. Sockets configured for a specific server are closed by other
@@ -82,7 +86,7 @@ other reason to partition sockets, explained below.
       ip-address: 192.0.2.1 servers=1
 
 Bind to Device
-==============
+--------------
 
 ``ip-address:`` options in the server: clause can now also be configured to bind
 directly to the network interface device on Linux (``bindtodevice=yes``) and to
@@ -102,7 +106,7 @@ network interface selection process.
           multiple routing tables.
 
 Combining Options
-=================
+-----------------
 
 Field tests have shown best performance is achieved by combining the
 aforementioned options so that each network interface is essentially bound to a

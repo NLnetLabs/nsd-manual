@@ -1,15 +1,16 @@
 .. _doc_nsd_tsig:
 
-Using TSIG (Transaction Signature)
-----------
+Using Transaction Signature (TSIG)
+==================================
 
-NSD supports TSIG (Transaction Signature) for zone transfer and for notify sending and receiving, for any query to the server.
+NSD supports Transaction Signature (TSIG) for zone transfer and for notify
+sending and receiving, for any query to the server.
 
 TSIG keys are based on shared secrets. These must be configured in the config
 file. To keep the secret in a separate file use ``include: "filename"`` to
 include that file.
 
-An example TSIG key named :file:`sec1_key`.
+An example TSIG key named :file:`sec1_key`:
 
 .. code:: text
 

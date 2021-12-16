@@ -1,7 +1,7 @@
 .. _doc_nsd_log_diagnosis:
 
 Diagnosing NSD Log Entries
---------------------------
+==========================
 
 NSD will print log messages to the system log (or ``logfile:`` configuration
 entry). Some of these messages are covered here.

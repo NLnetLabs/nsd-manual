@@ -1,5 +1,3 @@
-.. _doc_nsd_conf_manpage:
-
 nsd.conf(5)
 ===========
 

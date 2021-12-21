@@ -1,5 +1,3 @@
-.. _doc_nsd_log_diagnosis:
-
 Diagnosing NSD Log Entries
 ==========================
 

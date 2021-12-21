@@ -1,5 +1,3 @@
-.. _doc_nsd:
-
 Name Server Daemon (NSD) by NLnet Labs
 ======================================
 

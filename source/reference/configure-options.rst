@@ -1,5 +1,3 @@
-.. _doc_nsd_configure_options:
-
 Configure Options
 =================
 

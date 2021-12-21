@@ -1,5 +1,3 @@
-.. _doc_nsd_configuration:
-
 Configuration
 =============
 
@@ -12,8 +10,8 @@ Configuration file
 ------------------
 
 The configuration is specified in the configuration file, which can be supplied
-to NSD using the :option:`-c` option. In :ref:`our refence
-<doc_nsd_conf_manpage>` (and on your system) an example ``nsd.conf`` can be
+to NSD using the :option:`-c` option. In :doc:`our refence
+<manpages/nsd.conf>` (and on your system) an example ``nsd.conf`` can be
 found.
 
 The basic principles are:
@@ -147,7 +145,7 @@ value with:
     notify-retry: 5
 
 Zone transfers can be secured with TSIG keys, replace NOKEY with the name of the
-TSIG key to use. See :ref:`Using TSIG <doc_nsd_tsig>` for details.
+TSIG key to use. See :doc:`Using TSIG<running/using-tsig>` for details.
 
 Since NSD is written to be run on the root name servers, the config file  can to
 contain something like:
@@ -166,7 +164,7 @@ zone you have to make sure that the complete root zone is timely and fully
 updated.
 
 To prevent misconfiguration, NSD configure has the
-:option:`--enable-root-server` option, that is by default disabled.
+``--enable-root-server`` option, that is by default disabled.
 
 In the config file, you can use patterns. A pattern can have the same
 configuration statements that a zone can have.  And then you can
@@ -196,9 +194,9 @@ do is setup :command:`nsd-control` to listen to the public IP address, with
 
 Furthermore, you copy the key files :file:`/etc/nsd/nsd_server.pem`
 :file:`/etc/nsd/nsd_control.*` to a remote host on the internet; on that host
-you can run :command:`nsd-control` with :option:`-c <special config file>` which
-references same IP address ``control-interface`` and references the copies of
-the key files with ``server-cert-file``, ``control-key-file`` and
+you can run :command:`nsd-control` with :option:`-c` ``<special config file>``
+which references same IP address ``control-interface`` and references the copies
+of the key files with ``server-cert-file``, ``control-key-file`` and
 ``control-cert-file`` config lines after the ``control-enable`` statement.  The
 nsd-server authenticates the nsd-control client, and also the
 :command:`nsd-control` client authenticates the nsd-server.

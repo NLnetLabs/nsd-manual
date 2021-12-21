@@ -1,5 +1,3 @@
-.. _doc_nsd_manpage:
-
 nsd(8)
 ======
 

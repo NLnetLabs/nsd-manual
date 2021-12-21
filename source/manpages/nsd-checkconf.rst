@@ -1,5 +1,3 @@
-.. _doc_nsd_checkconf_manpage:
-
 nsd-checkconf(8)
 ================
 

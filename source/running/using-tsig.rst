@@ -1,5 +1,3 @@
-.. _doc_nsd_tsig:
-
 Using Transaction Signature (TSIG)
 ==================================
 

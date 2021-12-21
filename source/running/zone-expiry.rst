@@ -1,5 +1,3 @@
-.. _doc_nsd_zone_expiry:
-
 Zone Expiry of Secondary Zones
 ==============================
 

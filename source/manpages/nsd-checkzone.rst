@@ -1,5 +1,3 @@
-.. _doc_nsd_checkzone_manpage:
-
 nsd-checkzone(8)
 ================
 

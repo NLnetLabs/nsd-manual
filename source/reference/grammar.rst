@@ -1,5 +1,3 @@
-.. _doc_nsd_grammar:
-
 Grammar for DNS Zone Files
 ==========================
 

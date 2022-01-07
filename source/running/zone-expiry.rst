@@ -1,15 +1,13 @@
-.. _doc_nsd_zone_expiry:
-
-Zone Expiry of Secondary Zones 
-------------------------------
+Zone Expiry of Secondary Zones
+==============================
 
 NSD will keep track of the status of secondary zones, according to the timing
 values in the SOA record for the zone. When the refresh time of a zone is
 reached, the serial number is checked and a zone transfer is started if the zone
 has changed. Each primary server is tried in turn.
 
-Master zones cannot expire so they are always served. Zones are interpreted primary zones if
-they have no ``request-xfr:`` statements in the config file.
+Master zones cannot expire so they are always served. Zones are interpreted
+primary zones if they have no ``request-xfr:`` statements in the config file.
 
 After the expire timeout (from the SOA record at the zone apex) is reached, the
 zone becomes expired. NSD will return ``SERVFAIL`` for expired zones, and will

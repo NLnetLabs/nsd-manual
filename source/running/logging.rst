@@ -1,7 +1,5 @@
-.. _doc_nsd_logging:
-
 Logging
--------
+=======
 
 NSD does not provide any DNS logging. We believe that this is a separate task
 and has to be done independently from the core operation. This consciously is
@@ -12,8 +10,8 @@ The `CAIDA dnsstat tool <https://www.caida.org/catalog/software/dnsstat/>`_ can
 easily be configured and/or modified to suit local statistics requirements
 without any danger of affecting the name server itself. We have run ``dnsstat``
 on the same machine as NSD, and we would recommend using a multiprocessor if
-performance is an issue. Of course, ``dnsstat`` can also run on a separate machine that
-has MAC layer access to the network of the server.
+performance is an issue. Of course, ``dnsstat`` can also run on a separate
+machine that has MAC layer access to the network of the server.
 
 The :command:`nsd-control` tool can output some statistics, with
 :command:`nsd-control stats` and :command:`nsd-control stats_noreset`.  In

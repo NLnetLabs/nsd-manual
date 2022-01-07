@@ -1,5 +1,3 @@
-.. _doc_nsd_installation:
-
 Installation
 ------------
 
@@ -43,8 +41,8 @@ Installing NSD with the built-in package manager should be as easy as:
     sudo apt update
     sudo apt install nsd
 
-This gives you a compiled and running version of NSD ready to :ref:`be
-configured<doc_nsd_configuration>`.
+This gives you a compiled and running version of NSD ready to :doc:`be
+configured<configuration>`.
 
 
 Building from source/Compiling
@@ -138,5 +136,5 @@ using the :option:`-d` option and increase the verbosity level using the
 :option:`-V 3` option. This allows you to see steps NSD takes and also where it
 fails.
 
-Now that NSD is installed we can :ref:`continue to configuring
-it<doc_nsd_configuration>`.
+Now that NSD is installed we can :doc:`continue to configuring
+it<configuration>`.

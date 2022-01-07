@@ -1,14 +1,12 @@
-.. _doc_nsd_zonefile:
-
 Zonefile example
-----------------
+================
 
 On this page we give an example of a basic zone file and it's contents.
 
 We recommend using the :command:`nsd-checkzone` tool to verify that you have a working zone.
 
 Creating a zone
-===============
+---------------
 
 A zone needs a SOA (Source Of Authority) record. For the exact structure we refer you to `the wiki page <https://en.wikipedia.org/wiki/SOA_record>`_. Note that all records must Fully Qualified Domain Names (FQDNs) which adds a ``.`` to the domain name. In this example the FQDN is: ``example.com.``. This is in contrast to relative domain names, where the origin gets appended (so in the example below, ``www`` gets expanded to ``www.example.com.``). 
 

@@ -16,13 +16,15 @@
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
 
+import datetime
 import sphinx_rtd_theme
 
 # -- Project information -----------------------------------------------------
 
 project = 'NSD'
-copyright = '2021, NLnet Labs'
-author = 'NLnet Labs (CC-BY 3.0)'
+year = datetime.datetime.now().year
+copyright = f'2001–{year}, NLnet Labs'
+author = 'NLnet Labs'
 
 # The short X.Y version
 version = '4.3.9'
@@ -41,8 +43,21 @@ release = '4.3.9'
 extensions = [
     'sphinx.ext.todo',
     'sphinx.ext.ifconfig',
+    'sphinx_tabs.tabs',
+    'sphinx_copybutton',
+    'sphinx.ext.intersphinx',
     'sphinx.ext.autosectionlabel'
 ]
+
+intersphinx_mapping = {
+    'unbound': ('https://unbound.docs.nlnetlabs.nl/en/latest/', None)
+}
+
+autosectionlabel_prefix_document = True
+
+# -- Sphinx Tabs configuration -----------------------------------------------
+
+sphinx_tabs_disable_tab_closing = True
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['../templates']

@@ -69,7 +69,7 @@ We'll need some tools, such as a compiler and the :command:`make` program.
     sudo apt install -y build-essential
 
 
-The library components NSD needs are: ``libssl`` ``libevent``, of which we need
+The library components NSD needs are: ``libssl`` and ``libevent``, of which we need
 the "dev" version.
 
 .. code-block:: bash
@@ -84,8 +84,8 @@ download as well.
 
 .. code-block:: bash
 
-    sudo apt-get install -y bison
-    sudo apt-get install -y flex
+    sudo apt install -y bison
+    sudo apt install -y flex
 
 
 With all the requirements met, we can now start the compilation process in the

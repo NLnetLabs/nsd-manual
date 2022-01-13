@@ -27,6 +27,13 @@ zonename
 zonefile
     The file to read, eg. :file:`zones/example.com.zone.signed`.
 
+.. option::  -p
+
+    Print the zone contents to stdout if the zone is ok. This prints the
+    contents as it has been parsed, not literally a copy of the input, but
+    as printed by the formatting routines in NSD, much like the nsd-control
+    command write does.    
+
 See Also
 --------
     

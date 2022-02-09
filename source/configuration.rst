@@ -9,10 +9,10 @@ them.
 .. Note:: The instructions in this page assume that NSD is already installed.
 
 The configuration file
-======================
+----------------------
 
 
-The configuration NSD uses is specified in the configuration file, which can be supplied to NSD using the :option:`-c` option. In the `refence <https://www.nlnetlabs.nl/documentation/nsd/nsd.conf/>`_ an example ``nsd.conf`` can be found as well as the complete documentation of all the configurable options. The same example and reference can be found on your system using the ``man unbound.conf`` command.
+The configuration NSD uses is specified in the configuration file, which can be supplied to NSD using the :option:`-c` option. In the :doc:`reference<manpages/nsd.conf>` an example ``nsd.conf`` can be found as well as the complete documentation of all the configurable options. The same example and reference can be found on your system using the ``man nsd.conf`` command.
 
 
 The basic rules are of the config file are:
@@ -71,7 +71,7 @@ Here is an example config for ``example.com``:
 
 We recommend not using the database (``database: ""``) as this is will slow down NSD operation. Depending on your needs, we also recommend keeping the ``server-count`` lower or equal to the number of CPU cores your system has. 
 
-Optionally, you can control NSD (from the same o r even a different device) by configuring :option:`remote-control`. Using this tool, NSD can be controlled (find the reference of all the options `here <https://www.nlnetlabs.nl/documentation/nsd/nsd-control/>`_) which makes controling NSD much easier. If your install does not come with the keys neede for remote-control use pre-made, you can generate the keys using the :command:`nsd-control-setup` command, which will create them for you.
+Optionally, you can control NSD (from the same or even a different device) by configuring :command:`remote-control`. Using this tool, NSD can be controlled (find the reference of all the options `:doc:`here<manpages/nsd-control>`) which makes controling NSD much easier. If your install does not come with the keys neede for remote-control use pre-made, you can generate the keys using the :command:`nsd-control-setup` command, which will create them for you.
 
 You can test the config with :command:`nsd-checkconf`. This tool will tell you what is wrong with the config and where the error occurs.
 
@@ -79,7 +79,7 @@ If you are happy with the config and any modifications you may have done, you ca
 
 
 Setting up a secondary zone
-===========================
+---------------------------
 
 If your needs go further than just a few zones that are managed locally, NSD has got you covered. We won't go into the theoretical details of primaries and secondaries here (we recommend `this blog <https://www.cloudflare.com/en-gb/learning/dns/glossary/primary-secondary-dns/>`_), but we will show how to configure it.
 
@@ -187,10 +187,10 @@ apply those settings. This can be used to organise the settings.
 
 
 Remote controling NSD
-=====================
+---------------------
 
 The :command:`nsd-control` tool is also controlled from the ``nsd.conf`` config
-file. It uses TLS encrypted transport to 127.0.0.1, and if you want to use it
+file (and it's manpage is found :doc:`here<manpages/nsd-control>`). It uses TLS encrypted transport to 127.0.0.1, and if you want to use it
 you have to setup the keys and also edit the config file.  You can leave the
 remote-control disabled (the secure default), or opt to turn it on:
 
@@ -221,7 +221,7 @@ nsd-server authenticates the nsd-control client, and also the
 
 
 Starting up the first time
-==========================
+--------------------------
 
 When you are done with the configuration file, check the syntax using
 

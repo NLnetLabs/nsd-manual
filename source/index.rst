@@ -35,6 +35,7 @@ attribution to NLnet Labs.
 
    installation
    configuration
+   zonefile
 
 .. toctree::
    :maxdepth: 2

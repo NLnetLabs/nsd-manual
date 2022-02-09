@@ -112,10 +112,9 @@ the machine.
 
     sudo make install
 
-We now have fully compiled and installed version of NSD, and can :ref:`continue
-to testing it<Testing>`.
+We now have fully compiled and installed version of NSD, and can continue
+to testing it.
 
-.. Ref to testing
 
 Testing
 =======

@@ -6,93 +6,107 @@ configure the application, a ``nsd.conf`` configuration file used. The file
 format has attributes and values, and some attributes have attributes inside
 them.
 
-Configuration file
-------------------
+.. Note:: The instructions in this page assume that NSD is already installed.
 
-The configuration is specified in the configuration file, which can be supplied
-to NSD using the :option:`-c` option. In :doc:`our refence
-<manpages/nsd.conf>` (and on your system) an example ``nsd.conf`` can be
-found.
+The configuration file
+----------------------
 
-The basic principles are:
 
-- The used notation is ``attribute: value``
-- Comments start with ``#`` and extend to the end of a line
-- Empty lines are ignored, as is whitespace at the beginning of a line
-- Quotes can be used, for names containing spaces, e.g. ``"file name.zone"``
+The configuration NSD uses is specified in the configuration file, which can be supplied to NSD using the :option:`-c` option. In the :doc:`reference<manpages/nsd.conf>` an example ``nsd.conf`` can be found as well as the complete documentation of all the configurable options. The same example and reference can be found on your system using the ``man nsd.conf`` command.
+
+
+The basic rules are of the config file are:
+
+  - The used notation is ``attribute: value``
+  - Comments start with ``#`` and extend to the end of a line
+  - Empty lines are ignored, as is whitespace at the beginning of a line
+  - Quotes can be used, for names containing spaces, e.g. ``"file name.zone"``
+
+
+Below we'll give an example config file, which specifies options for the NSD server, zone files, primaries and secondaries. This provide basic config whica can be used for as a starting point
 
 The example configuration below specifies options for the NSD server, zone
 files, primaries and secondaries.
 
 Here is an example config for ``example.com``:
 
-.. code:: text
-
-        # Example.com nsd.conf file
-        # This is a comment.
-
+.. code:: bash
+    
         server:
-            server-count: 1 # use this number of cpu cores
-            database: ""  # or use "/var/db/nsd/nsd.db"
-            zonelistfile: "/var/db/nsd/zone.list"
-            username: nsd # the user that will run NSD, can also be "" if user privilige protection is not needed
-            logfile: "/var/log/nsd.log" # file where all the log messages go
-            pidfile: "/var/run/nsd.pid" # use this pid file instead of the platform specific default
-            xfrdfile: "/var/db/nsd/xfrd.state"
+            # use this number of cpu cores
+            server-count: 1 
+            # We recommend leaving this empty, otherwise use "/var/db/nsd/nsd.db"
+            database: ""
+            #  the default file used for the nsd-control addzone and delzone commands
+            # zonelistfile: "/var/db/nsd/zone.list"
+            # The unprivileged user that will run NSD, can also be set to "" if
+            # user privilige protection is not needed
+            username: nsd
+            # Default file where all the log messages go
+            logfile: "/var/log/nsd.log"
+            # Use this pid file instead of the platform specific default
+            pidfile: "/var/run/nsd.pid"
+            # Enable if privilege "jail" is needed for unprivileged user. Note 
+            # that other file paths may break when using chroot
+            # chroot: "/etc/nsd/"
+            # The default zone transfer file
+            # xfrdfile: "/var/db/nsd/xfrd.state"
+            # The default working directory before accessing zone files
+            # zonesdir: "/etc/nsd"
+
+        remote-control:
+            # this allows the use of 'nsd-control' to control NSD. The default is "no"
+            control-enable: yes
+            # the interface NSD listens to for nsd-control. The default is 127.0.0.1
+            control-interface: 127.0.0.1
+            # the key files that allow the use of 'nsd-control'. The default path is "/etc/nsd/". Create these using the 'nsd-control-setup' utility
+            server-key-file: /etc/nsd/nsd_server.key
+            server-cert-file: /etc/nsd/nsd_server.pem
+            control-key-file: /etc/nsd/nsd_control.key
+            control-cert-file: /etc/nsd/nsd_control.pem
 
         zone:
             name: example.com
             zonefile: /etc/nsd/example.com.zone
 
+We recommend not using the database (``database: ""``) as this is will slow down NSD operation. Depending on your needs, we also recommend keeping the ``server-count`` lower or equal to the number of CPU cores your system has. 
+
+Optionally, you can control NSD (from the same or even a different device) by configuring :command:`remote-control`. Using this tool, NSD can be controlled (find the reference of all the options `:doc:`here<manpages/nsd-control>`) which makes controling NSD much easier. If your install does not come with the keys neede for remote-control use pre-made, you can generate the keys using the :command:`nsd-control-setup` command, which will create them for you.
+
+You can test the config with :command:`nsd-checkconf`. This tool will tell you what is wrong with the config and where the error occurs.
+
+If you are happy with the config and any modifications you may have done, you can create the zone to go with the file we mentioned in the config. We show an example zone at :ref:`the zonefile example<doc_nsd_zonefile>`.
+
+
+Setting up a secondary zone
+---------------------------
+
+If your needs go further than just a few zones that are managed locally, NSD has got you covered. We won't go into the theoretical details of primaries and secondaries here (we recommend `this blog <https://www.cloudflare.com/en-gb/learning/dns/glossary/primary-secondary-dns/>`_), but we will show how to configure it.
+
+
+The example for a secondary looks like this:
+
+.. code:: bash
+    
         zone:
-            # this server is master, 192.0.2.1 is the secondary.
-            name: masterzone.com
-            zonefile: /etc/nsd/masterzone.com.zone
-            notify: 192.0.2.1 NOKEY
-            provide-xfr: 192.0.2.1 NOKEY
+            # this server is the primary, 192.0.2.1 is the secondary.
+            name: primaryzone.com
+            zonefile: /etc/nsd/primaryone.com.zone
+            notify: 192.0.2.1 NOKEY # NOKEY for testing purposes only
+            provide-xfr: 192.0.2.1 NOKEY # NOKEY for testing purposes only
 
         zone:
-            # this server is secondary, 192.0.2.2 is master.
-            name: secondzone.com
-            zonefile: /etc/nsd/secondzone.com.zone
-            allow-notify: 192.0.2.2 NOKEY
-            request-xfr: 192.0.2.2 NOKEY
+            # this server is secondary, 192.0.2.2 is primary.
+            name: secondaryzone.com
+            zonefile: /etc/nsd/secondaryzone.com.zone
+            allow-notify: 192.0.2.2 NOKEY # NOKEY for testing purposes only
+            request-xfr: 192.0.2.2 NOKEY # NOKEY for testing purposes only
 
-The server settings start with a line with the keyword ``server:``. In the
-server settings set ``database: <file>`` with the filename of the name database
-that NSD will use. Set ``chroot: <dir>`` to run NSD in a chroot-jail. Make sure
-the zone files, database file, xfrdfile, difffile and pidfile can be accessed
-from the chroot-jail.  Set ``username: <user>`` to an  unprivileged user, for
-security.  
+Note that the ``NOKEY`` keyword above are for testing purposes only, as this can introduce vulnerabilities when used in production environments.
 
-For example:
 
-.. code-block:: text
 
-  # This is a sample configuration
-  server:
-    database: "/etc/nsd/nsd.db"
-    pidfile: "/etc/nsd/nsd.pid"
-    chroot: "/etc/nsd/"
-    username: nsd
-
-After the global server settings to need to make entries for the
-zones that you wish to serve. For each zone you need to list the zone
-name, the file name with the zone contents, and access control lists.
-
-.. code-block:: text
-
-  zone:
-    name:	"example.com"
-    zonefile: "example.com.zone"
-
-The zone file needs to be filled with the correct zone information for primary
-zones. For secondary zones an empty file will suffice, a zone transfer will be
-initiated to obtain the secondary zone contents.
-
-Access control lists are needed for zone transfer and notifications.
-
-For a secondary zone list the masters, by IP address. Below is an example
+For a secondary zone we list the primaries by IP address. Below is an example
 of a secondary zone with two primary servers. If a primary only supports AXFR
 transfers and not IXFR transfers (like NSD), specify the primary as
 ``request-xfr: AXFR <ip_address> <key>``. By default, all zone transfer requests 
@@ -114,34 +128,34 @@ does not support IXFR. You can configure the secondary not to do AXFR fallback
 with:
 
 .. code-block:: text
-
+    
     allow-axfr-fallback: "no"
 
 For a primary zone, list the secondary servers, by IP address or subnet. Below
 is an example of a primary zone with two secondary servers:
 
 .. code-block:: text
-
-  zone:
-    name: "example.com"
-    zonefile: "example.com.zone"
-    notify: 168.192.133.75 NOKEY
-    provide-xfr: 168.192.133.75 NOKEY
-    notify: 168.192.5.44 NOKEY
-    provide-xfr: 168.192.5.44 NOKEY
+    
+    zone:
+        name: "example.com"
+        zonefile: "example.com.zone"
+        notify: 168.192.133.75 NOKEY
+        provide-xfr: 168.192.133.75 NOKEY
+        notify: 168.192.5.44 NOKEY
+        provide-xfr: 168.192.5.44 NOKEY
 
 You also can set the outgoing interface for notifies and zone transfer requests 
 to satisfy access control lists at the other end:
 
 .. code-block:: text
-
+    
     outgoing-interface: 168.192.5.69
 
 By default, NSD will retry a notify up to five times. You can override that
 value with: 
 
 .. code-block:: text
-
+    
     notify-retry: 5
 
 Zone transfers can be secured with TSIG keys, replace NOKEY with the name of the
@@ -151,12 +165,12 @@ Since NSD is written to be run on the root name servers, the config file  can to
 contain something like:
 
 .. code-block:: text
-
-  zone:
-    name: "."
-    zonefile: "root.zone"
-    provide-xfr: 0.0.0.0/0 NOKEY # allow axfr for everyone.
-    provide-xfr: ::0/0 NOKEY
+    
+    zone:
+        name: "."
+        zonefile: "root.zone"
+        provide-xfr: 0.0.0.0/0 NOKEY # allow axfr for everyone.
+        provide-xfr: ::0/0 NOKEY
 
 You should only do that if you're intending to run a root server, NSD is not
 suited for running a ``.`` cache. Therefore if you choose to serve the ``.``
@@ -171,8 +185,12 @@ configuration statements that a zone can have.  And then you can
 ``include-pattern: <name-of-pattern>`` in a zone (or in another pattern) to
 apply those settings. This can be used to organise the settings.
 
+
+Remote controling NSD
+---------------------
+
 The :command:`nsd-control` tool is also controlled from the ``nsd.conf`` config
-file. It uses TLS encrypted transport to 127.0.0.1, and if you want to use it
+file (and it's manpage is found :doc:`here<manpages/nsd-control>`). It uses TLS encrypted transport to 127.0.0.1, and if you want to use it
 you have to setup the keys and also edit the config file.  You can leave the
 remote-control disabled (the secure default), or opt to turn it on:
 
@@ -201,6 +219,10 @@ of the key files with ``server-cert-file``, ``control-key-file`` and
 nsd-server authenticates the nsd-control client, and also the
 :command:`nsd-control` client authenticates the nsd-server.
 
+
+Starting up the first time
+--------------------------
+
 When you are done with the configuration file, check the syntax using
 
 .. code-block:: text
@@ -212,12 +234,12 @@ contents. You can start the daemon with:
 
 .. code-block:: text
 
-    nsd
+    nsd -c <name of configfile>
     or with "nsd-control start" (which execs nsd again).
-    or with nsd -c <name of configfile>
+    or simply with "nsd", which wil use the default configuration file
 
 To check if the daemon is running look with :command:`ps`, :command:`top`, or if
-you enabled command:`nsd-control`:
+you enabled :command:`nsd-control`:
 
 .. code-block:: text
 
@@ -229,12 +251,7 @@ use this to check if files are modified:
 .. code-block:: text
 
     kill -HUP `cat <name of nsd pidfile>`
-
-If you enabled :command:`nsd-control`, you can re-read with:
-
-.. code-block:: text
-
-    nsd-control reload
+    or "nsd-control reload" if you have remote-control enabled 
     
 With :command:`nsd-control` you can also reread the config file, in case of new
 zones, etc.
@@ -247,7 +264,7 @@ To restart the daemon:
 
 .. code-block:: text
 
-    /etc/rc.d/nsd restart  # or your system(d) equivalent
+    /etc/rc.d/nsd restart    # or your system(d) equivalent
 
 To shut it down (for example on the system shutdown) do:
 

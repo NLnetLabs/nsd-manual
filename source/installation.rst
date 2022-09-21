@@ -48,12 +48,12 @@ configured<configuration>`.
 Building from source/Compiling
 ==============================
 
-Debian/Ubuntu
+Ubuntu 20.04 LTS
 *************
 
 First of all, we need our copy of the NSD code. `On our website
 <https://nlnetlabs.nl/projects/nsd/about/>`_ you can find the latest version and
-the changelog. In this example we'll use version 4.3.7.
+the changelog. In this example we'll use version 4.3.7. Please note that this is not the latest version currently.
 
 .. code-block:: bash
 

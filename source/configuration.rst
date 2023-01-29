@@ -23,7 +23,7 @@ The basic rules are of the config file are:
   - Quotes can be used, for names containing spaces, e.g. ``"file name.zone"``
 
 
-Below we'll give an example config file, which specifies options for the NSD server, zone files, primaries and secondaries. This provide basic config whica can be used for as a starting point
+Below we'll give an example config file, which specifies options for the NSD server, zone files, primaries and secondaries. This provide basic config which can be used for as a starting point
 
 The example configuration below specifies options for the NSD server, zone
 files, primaries and secondaries.
@@ -71,7 +71,7 @@ Here is an example config for ``example.com``:
 
 We recommend not using the database (``database: ""``) as this is will slow down NSD operation. Depending on your needs, we also recommend keeping the ``server-count`` lower or equal to the number of CPU cores your system has. 
 
-Optionally, you can control NSD (from the same or even a different device) by configuring :command:`remote-control`. Using this tool, NSD can be controlled (find the reference of all the options `:doc:`here<manpages/nsd-control>`) which makes controling NSD much easier. If your install does not come with the keys neede for remote-control use pre-made, you can generate the keys using the :command:`nsd-control-setup` command, which will create them for you.
+Optionally, you can control NSD (from the same or even a different device) by configuring :command:`remote-control`. Using this tool, NSD can be controlled (find the reference of all the options `:doc:`here<manpages/nsd-control>`) which makes controlling NSD much easier. If your install does not come with the keys neede for remote-control use pre-made, you can generate the keys using the :command:`nsd-control-setup` command, which will create them for you.
 
 You can test the config with :command:`nsd-checkconf`. This tool will tell you what is wrong with the config and where the error occurs.
 
@@ -186,8 +186,8 @@ configuration statements that a zone can have.  And then you can
 apply those settings. This can be used to organise the settings.
 
 
-Remote controling NSD
----------------------
+Remote controlling NSD
+----------------------
 
 The :command:`nsd-control` tool is also controlled from the ``nsd.conf`` config
 file (and it's manpage is found :doc:`here<manpages/nsd-control>`). It uses TLS encrypted transport to 127.0.0.1, and if you want to use it

@@ -23,7 +23,9 @@ The basic rules are of the config file are:
   - Quotes can be used, for names containing spaces, e.g. ``"file name.zone"``
 
 
-Below we'll give an example config file, which specifies options for the NSD server, zone files, primaries and secondaries. This provide basic config which can be used for as a starting point
+Below we'll give an example config file, which specifies options for the NSD server, zone files, primaries and secondaries. This provide basic config which can be used for as a starting point.
+
+Note that for the remainder we assume the default location of NSD is ``\etc\nsd`` though this may vary on your system.
 
 The example configuration below specifies options for the NSD server, zone
 files, primaries and secondaries.
@@ -69,13 +71,13 @@ Here is an example config for ``example.com``:
             name: example.com
             zonefile: /etc/nsd/example.com.zone
 
-We recommend not using the database (``database: ""``) as this is will slow down NSD operation. Depending on your needs, we also recommend keeping the ``server-count`` lower or equal to the number of CPU cores your system has. 
+We recommend not using the database (so using ``database: ""``) as this is will slow down NSD operation. Depending on your needs, we also recommend keeping the ``server-count`` lower or equal to the number of CPU cores your system has.
 
-Optionally, you can control NSD (from the same or even a different device) by configuring :command:`remote-control`. Using this tool, NSD can be controlled (find the reference of all the options `:doc:`here<manpages/nsd-control>`) which makes controlling NSD much easier. If your install does not come with the keys neede for remote-control use pre-made, you can generate the keys using the :command:`nsd-control-setup` command, which will create them for you.
+Optionally, you can control NSD (from the same or even a different device) by using the entries under the `remote-control` clause in the config. Using this tool, NSD can be controlled (find the reference of all the options :doc:`here<manpages/nsd-control>`) which makes controlling NSD much easier. If your install does not come with the keys needed for remote-control use pre-made, you can generate the keys using the :command:`nsd-control-setup` command, which will create them for you. In the section below we will go into more detail about this option.
 
 You can test the config with :command:`nsd-checkconf`. This tool will tell you what is wrong with the config and where the error occurs.
 
-If you are happy with the config and any modifications you may have done, you can create the zone to go with the file we mentioned in the config. We show an example zone at :ref:`the zonefile example<doc_nsd_zonefile>`.
+If you are happy with the config and any modifications you may have done, you can create the zone to go with the file we mentioned in the config. We show an example zone at :doc:`the zonefile example<zonefile>`.
 
 
 Setting up a secondary zone
@@ -102,7 +104,9 @@ The example for a secondary looks like this:
             allow-notify: 192.0.2.2 NOKEY # NOKEY for testing purposes only
             request-xfr: 192.0.2.2 NOKEY # NOKEY for testing purposes only
 
-Note that the ``NOKEY`` keyword above are for testing purposes only, as this can introduce vulnerabilities when used in production environments.
+.. note::
+    
+    Note that the ``NOKEY`` keyword above are for testing purposes only, as this can introduce vulnerabilities when used in production environments.
 
 
 
@@ -206,8 +210,7 @@ remote-control disabled (the secure default), or opt to turn it on:
     control-enable: yes
 
 By default :command:`nsd-control` is limited to localhost, as well as encrypted,
-but some people may want to remotely administer their nameserver.  What you then
-do is setup :command:`nsd-control` to listen to the public IP address, with
+but some people may want to remotely administer their nameserver.  To control NSD remotely, configure :command:`nsd-control` to listen to the public IP address with
 ``control-interface: <IP>`` after the control-enable statement. 
 
 Furthermore, you copy the key files :file:`/etc/nsd/nsd_server.pem`
@@ -230,13 +233,13 @@ When you are done with the configuration file, check the syntax using
     nsd-checkconf <name of configfile>
 
 The zone files are read by the daemon, which builds :file:`nsd.db` with their
-contents. You can start the daemon with:
+contents. You can start the daemon in a number of ways:
 
 .. code-block:: text
 
     nsd -c <name of configfile>
-    or with "nsd-control start" (which execs nsd again).
-    or simply with "nsd", which wil use the default configuration file
+    nsd-control start # which execs nsd via the remote-control configuration
+    nsd # which will use the default configuration file
 
 To check if the daemon is running look with :command:`ps`, :command:`top`, or if
 you enabled :command:`nsd-control`:

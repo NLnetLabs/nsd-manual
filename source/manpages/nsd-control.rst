@@ -329,6 +329,9 @@ num.txerr
 num.raxfr
         number of AXFR requests from clients (that got served with reply).
 
+num.rixfr
+        number of IXFR requests from clients (that got served with reply).
+
 num.truncated
         number of answers with TC flag set.
 

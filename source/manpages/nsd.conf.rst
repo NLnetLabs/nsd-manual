@@ -498,7 +498,7 @@ The **remote-control:** clause is used to set options for using the
 :manpage:`nsd-control(8)` tool to give commands to the running NSD server. It is
 disabled by default, and listens for localhost by default. It uses TLS over TCP
 where the server and client authenticate to each other with self-signed
-certificates. The self-signed certificates can be gener- ated with the
+certificates. The self-signed certificates can be generated with the
 *nsd-control-setup* tool. The key files are read by NSD before the chroot and
 before dropping user permissions, so they can be outside the chroot and readable
 by the superuser only.
@@ -517,7 +517,7 @@ control-interface: <ip4 or ip6 | interface name | absolute path>
         addresses associated with that interface is picked up and used at server
         start.
 
-        With an absolute path, a unix local named pipe is used for con- trol.
+        With an absolute path, a unix local named pipe is used for control.
         The file is created with user and group that is config- ured and access
         bits are set to allow members of the group ac- cess. Further access can
         be controlled by setting permissions on the directory containing the

@@ -518,8 +518,8 @@ control-interface: <ip4 or ip6 | interface name | absolute path>
         start.
 
         With an absolute path, a unix local named pipe is used for control.
-        The file is created with user and group that is config- ured and access
-        bits are set to allow members of the group ac- cess. Further access can
+        The file is created with user and group that is configured and access
+        bits are set to allow members of the group access. Further access can
         be controlled by setting permissions on the directory containing the
         control socket file. The key and cert files are not used when control is
         via the named pipe, because access control is via file and directory

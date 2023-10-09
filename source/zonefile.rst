@@ -41,9 +41,6 @@ To have multi-line resource records opening and closing brackets can be used to 
 
 	mail			MX	10	example.com.
 
-	1.2.0.192.in-addr.arpa". PTR example.com.
-
-
 
 .. could add this structure eventually: <name> <ttl> <class> <type> <rdata>
 

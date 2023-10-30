@@ -13,8 +13,8 @@ Description
 attributes and values. Some attributes have attributes inside them. The notation
 is: ``attribute: value``.
 
-Comments start with ``#`` and last to the end of line. Empty lines are ig-
-nored as is whitespace at the beginning of a line. Quotes can be used,
+Comments start with ``#`` and last to the end of line. Empty lines are ignored
+as is whitespace at the beginning of a line. Quotes can be used,
 for names with spaces, eg. "file name.zone".
 
 :command:`Nsd.conf` specifies options for the nsd server, zone files, primaries
@@ -874,12 +874,12 @@ Slave zones
 ^^^^^^^^^^^
 For a slave zone, the master servers are listed. The master servers are
 queried for zone data, and are listened to for update notifications.
-In NSD these two properties need to be configured separately, by list-
-ing the master address in allow-notify and request-xfr statements.
+In NSD these two properties need to be configured separately, by listing
+the master address in allow-notify and request-xfr statements.
 
 In BIND9 you only need to provide allow-notify elements for any extra
-sources of notifications (i.e. the operators), NSD needs to have al-
-low-notify for both masters and operators. BIND9 allows additional
+sources of notifications (i.e. the operators), NSD needs to have
+allow-notify for both masters and operators. BIND9 allows additional
 transfer sources, in NSD you list those as request-xfr.
 
 Here is an example of a slave zone in BIND9 syntax.

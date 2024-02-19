@@ -36,6 +36,7 @@ attribution to NLnet Labs.
    installation
    configuration
    zonefile
+   catalog-zones
 
 .. toctree::
    :maxdepth: 2
@@ -55,6 +56,7 @@ attribution to NLnet Labs.
    manpages/nsd-checkconf
    manpages/nsd-checkzone
    manpages/nsd.conf
+   manpages/nsd.conf.new
    manpages/nsd-control
 
 .. toctree::

@@ -157,7 +157,7 @@ An example catalog producer configuration could look like this:
 The producer zone is configured as a primary and allows (in our example)
 transfer of the zone over TLS only. Also, just like with the consumer zone
 configuration example above, queries to this zone are ``BLOCKED`` to comply
-with `RECOMMENDED<https://www.rfc-editor.org/rfc/rfc9432#section-7>`_ privacy
+with `RECOMMENDED <https://www.rfc-editor.org/rfc/rfc9432#section-7>`_ privacy
 and security considerations. We also recommend - for primary zones in general -
 to serve *incremental* transfers (configured with ``store-ixfr: yes``).
 

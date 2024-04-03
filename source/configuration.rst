@@ -25,7 +25,7 @@ The basic rules are of the config file are:
 
 Below we'll give an example config file, which specifies options for the NSD server, zone files, primaries and secondaries. This provide basic config which can be used for as a starting point.
 
-Note that for the remainder we assume the default location of NSD is ``\etc\nsd`` though this may vary on your system.
+Note that for the remainder we assume the default location of NSD is ``/etc/nsd`` though this may vary on your system.
 
 The example configuration below specifies options for the NSD server, zone
 files, primaries and secondaries.

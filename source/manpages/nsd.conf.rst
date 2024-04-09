@@ -950,7 +950,7 @@ Here is an example of a master zone in BIND9 syntax.
                 file "example.nl";
         };
 
-        In NSD syntax this becomes:
+In NSD syntax this becomes:
 
         zone:
                 name: "example.nl"

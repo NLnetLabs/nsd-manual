@@ -657,7 +657,7 @@ request-xfr: [AXFR|UDP] <ip-address> <key-name | NOKEY> [tls-auth-name]
         option is left out then both IXFR and AXFR requests are made to the
         master server.
 
-        If the UDP option is given, the secondary will use UDP to trans- mit the
+        If the UDP option is given, the secondary will use UDP to transmit the
         IXFR requests. You should deploy TSIG when allowing UDP transport, to
         authenticate notifies and zone transfers. Otherwise, NSD is more
         vulnerable for Kaminsky-style attacks. If the UDP option is left out

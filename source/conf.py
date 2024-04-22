@@ -47,11 +47,12 @@ extensions = [
     'sphinx_copybutton',
     'sphinx.ext.intersphinx',
     'sphinx.ext.autosectionlabel',
-    'notfound.extension'
+    'notfound.extension',
+    'sphinxcontrib.jquery',
 ]
 
 intersphinx_mapping = {
-    'unbound': ('https://unbound.docs.nlnetlabs.nl/en/latest/', None)
+    'nsd': ('https://nsd.docs.nlnetlabs.nl/en/latest/', None)
 }
 
 autosectionlabel_prefix_document = True

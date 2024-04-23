@@ -2,9 +2,10 @@ Logging
 =======
 
 NSD does not provide any DNS logging. We believe that this is a separate task
-and has to be done independently from the core operation. This consciously is
-not part of NSD itself in order to keep NSD focused and minimise its complexity.
-It is better to leave logging and tracing to separate dedicated tools. 
+and has to be done independently from the core operation. This decision was taken 
+in order to keep NSD focused and minimise its complexity.
+It is better to leave logging and tracing to separate dedicated tools. Do note,
+however, that NSD can be compiled with support for DNSTAP (see ``nsd.conf(5)``).
 
 The `CAIDA dnsstat tool <https://www.caida.org/catalog/software/dnsstat/>`_ can
 easily be configured and/or modified to suit local statistics requirements

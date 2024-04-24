@@ -65,7 +65,6 @@ attribution to NLnet Labs.
    
    reference/configure-options
    reference/log-diagnosis
-   reference/grammar
    
 .. history
 .. authors

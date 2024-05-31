@@ -952,6 +952,8 @@ Here is an example of a master zone in BIND9 syntax.
 
 In NSD syntax this becomes:
 
+.. code-block:: text
+
         zone:
                 name: "example.nl"
                 zonefile: "example.nl"

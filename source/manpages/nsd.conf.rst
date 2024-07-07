@@ -386,7 +386,7 @@ zonefiles-write: <seconds>
         Default is 0 (disabled) when there is a database, and 3600 (1 hour) when
         database is ``""``. The database also commits zone transfer contents. You
         can configure it away from the default by putting the config statement
-        for zone-files-write: after the database: statement in the config file.
+        for zonefiles-write: after the database: statement in the config file.
 
 rrl-size: <numbuckets>
         This option gives the size of the hashtable. Default 1000000. More

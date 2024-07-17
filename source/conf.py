@@ -18,6 +18,7 @@
 
 import datetime
 import sphinx_rtd_theme
+import requests
 
 # -- Project information -----------------------------------------------------
 
@@ -30,6 +31,18 @@ author = 'NLnet Labs'
 version = '4.3.9'
 # The full version, including alpha/beta/rc tags
 release = '4.3.9'
+
+try:
+    response_versions = requests.get(
+        f"https://readthedocs.org/api/v2/version/?project__slug=nsd&active=true",
+        timeout=2,
+    ).json()
+    versions = [
+        (version["slug"], f"/{version['project']['language']}/{version['slug']}/")
+        for version in response_versions["results"]
+    ]
+except Exception:
+    versions = []
 
 # -- General configuration ---------------------------------------------------
 
@@ -49,6 +62,7 @@ extensions = [
     'sphinx.ext.autosectionlabel',
     'notfound.extension',
     'sphinxcontrib.jquery',
+    'sphinx_rtd_theme',
 ]
 
 intersphinx_mapping = {
@@ -78,7 +92,7 @@ master_doc = 'index'
 #
 # This is also used if you do content translation via gettext catalogs.
 # Usually you set "language" from the command line for these cases.
-language = None
+language = "en"
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
@@ -88,6 +102,36 @@ exclude_patterns = []
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
 
+# Set canonical URL from the Read the Docs Domain
+html_baseurl = os.environ.get("READTHEDOCS_CANONICAL_URL", "")
+scheme = "https"
+
+html_context = {
+        'html_theme': html_theme,
+        'current_version': version,
+        'version_slug': version,
+
+        'PRODUCTION_DOMAIN': "readthedocs.org",
+        'versions': versions,
+        # "downloads": downloads,
+        # "subprojects": subprojects,
+
+        'slug': "nsd",
+        'rtd_language': language,
+        'canonical_url': html_baseurl,
+
+        'conf_py_path': "/source/",
+
+        'github_user': "NLnetLabs",
+        'github_repo': "routinator",
+        'github_version': os.environ.get("READTHEDOCS_GIT_IDENTIFIER", "main"),
+        'display_github': True,
+        'READTHEDOCS': True,
+        'using_theme': False,
+        'new_theme': True,
+        'source_suffix': ".rst",
+        'docsearch_disabled': False,
+    }
 
 # -- Options for HTML output -------------------------------------------------
 

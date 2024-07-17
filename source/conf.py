@@ -123,7 +123,7 @@ html_context = {
         'conf_py_path': "/source/",
 
         'github_user': "NLnetLabs",
-        'github_repo': "routinator",
+        'github_repo': "nsd",
         'github_version': os.environ.get("READTHEDOCS_GIT_IDENTIFIER", "main"),
         'display_github': True,
         'READTHEDOCS': True,

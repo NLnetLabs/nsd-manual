@@ -103,37 +103,6 @@ exclude_patterns = []
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
 
-# Set canonical URL from the Read the Docs Domain
-html_baseurl = os.environ.get("READTHEDOCS_CANONICAL_URL", "")
-scheme = "https"
-
-html_context = {
-        'html_theme': html_theme,
-        'current_version': version,
-        'version_slug': version,
-
-        'PRODUCTION_DOMAIN': "readthedocs.org",
-        'versions': versions,
-        # "downloads": downloads,
-        # "subprojects": subprojects,
-
-        'slug': "nsd",
-        'rtd_language': language,
-        'canonical_url': html_baseurl,
-
-        'conf_py_path': "/source/",
-
-        'github_user': "NLnetLabs",
-        'github_repo': "nsd",
-        'github_version': os.environ.get("READTHEDOCS_GIT_IDENTIFIER", "main"),
-        'display_github': True,
-        'READTHEDOCS': True,
-        'using_theme': False,
-        'new_theme': True,
-        'source_suffix': ".rst",
-        'docsearch_disabled': False,
-    }
-
 # -- Options for HTML output -------------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
@@ -169,6 +138,37 @@ html_static_path = ['resources']
 #
 # html_sidebars = {}
 
+
+# Set canonical URL from the Read the Docs Domain
+html_baseurl = os.environ.get("READTHEDOCS_CANONICAL_URL", "")
+scheme = "https"
+
+html_context = {
+        'html_theme': html_theme,
+        'current_version': version,
+        'version_slug': version,
+
+        'PRODUCTION_DOMAIN': "readthedocs.org",
+        'versions': versions,
+        # "downloads": downloads,
+        # "subprojects": subprojects,
+
+        'slug': "nsd",
+        'rtd_language': language,
+        'canonical_url': html_baseurl,
+
+        'conf_py_path': "/source/",
+
+        'github_user': "NLnetLabs",
+        'github_repo': "nsd",
+        'github_version': os.environ.get("READTHEDOCS_GIT_IDENTIFIER", "main"),
+        'display_github': True,
+        'READTHEDOCS': True,
+        'using_theme': False,
+        'new_theme': True,
+        'source_suffix': ".rst",
+        'docsearch_disabled': False,
+    }
 
 # -- Options for HTMLHelp output ---------------------------------------------
 

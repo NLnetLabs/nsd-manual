@@ -69,7 +69,7 @@ After the lexer was written the grammar itself is quite clean and nice. The
 basic idea is that every RR consists of single line (the parentheses are handled
 in the lexer - so this really is the case). If a line is not a RR it is either a
 comment, empty or a $-directive. Some $-directives are handled inside the lexer
-($INCLUDE) while others ($ORIGIN) must be dealt with inside the grammer.
+($INCLUDE) while others ($ORIGIN) must be dealt with inside the grammar.
 
 An RR is defined as:
 
@@ -117,5 +117,5 @@ the SOA:
                 current_parser->minimum = DEFAULT_TTL;
         };
         
-The semantic actions in the grammer store the RR data for processing by the zone
+The semantic actions in the grammar store the RR data for processing by the zone
 compiler. The resulting database is then used by NSD the serve the data.
